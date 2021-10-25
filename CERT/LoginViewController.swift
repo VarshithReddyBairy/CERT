@@ -9,6 +9,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var userNameField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
+    var isLogged = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +21,19 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if userNameField.text == "user"   && passwordField.text == "user123"{
+            isLogged = true
+        }
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let transition = segue.identifier
+        
+        if transition == "isLogged"{
+            let destination = segue.destination as! isLoggedViewController
+            destination.isLogge = isLogged
+        }
+        isLogged = false
+    }
 }

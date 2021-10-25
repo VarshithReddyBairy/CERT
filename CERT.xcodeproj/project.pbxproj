@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FBD60272726F16E00D97D13 /* isLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */; };
 		B048D1012725AE140006C0FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D1002725AE140006C0FC /* AppDelegate.swift */; };
 		B048D1032725AE140006C0FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D1022725AE140006C0FC /* SceneDelegate.swift */; };
 		B048D1052725AE140006C0FC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D1042725AE140006C0FC /* HomeViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isLoggedViewController.swift; sourceTree = "<group>"; };
 		B048D0FD2725AE140006C0FC /* CERT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CERT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B048D1002725AE140006C0FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B048D1022725AE140006C0FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				B048D1022725AE140006C0FC /* SceneDelegate.swift */,
 				B048D137272600FA0006C0FC /* LoginViewController.swift */,
 				B048D1042725AE140006C0FC /* HomeViewController.swift */,
+				3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */,
 				B048D1332725D4140006C0FC /* RegistrationViewController.swift */,
 				B048D1062725AE140006C0FC /* Main.storyboard */,
 				B048D10C2725AE160006C0FC /* Assets.xcassets */,
@@ -280,6 +283,7 @@
 				B048D1052725AE140006C0FC /* HomeViewController.swift in Sources */,
 				B048D1012725AE140006C0FC /* AppDelegate.swift in Sources */,
 				B048D13C272606AC0006C0FC /* Registration2ViewController.swift in Sources */,
+				3FBD60272726F16E00D97D13 /* isLoggedViewController.swift in Sources */,
 				B048D1032725AE140006C0FC /* SceneDelegate.swift in Sources */,
 				B048D10B2725AE140006C0FC /* CERT.xcdatamodeld in Sources */,
 				B048D1342725D4140006C0FC /* RegistrationViewController.swift in Sources */,

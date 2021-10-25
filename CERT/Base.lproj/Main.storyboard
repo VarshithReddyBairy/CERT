@@ -512,7 +512,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="v6e-fC-7qS"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -529,6 +529,10 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Login">
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="loginButtonPressed:" destination="tdZ-uA-1UH" eventType="touchUpInside" id="H0d-SA-ZGI"/>
+                                                            <segue destination="EeL-sF-tAo" kind="show" identifier="isLogged" id="dJP-gR-975"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -547,10 +551,42 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UEb-DC-SFy"/>
+                    <connections>
+                        <outlet property="passwordField" destination="y3o-yB-30v" id="Hg6-Zw-Uzc"/>
+                        <outlet property="userNameField" destination="bcl-Qf-KNf" id="eRb-Zz-Xwc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phY-a9-V6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1746.7289719626167" y="81.641468682505405"/>
+        </scene>
+        <!--Is Logged View Controller-->
+        <scene sceneID="kr9-R9-MiA">
+            <objects>
+                <viewController id="EeL-sF-tAo" customClass="isLoggedViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fKA-lb-RBh">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aT-Mg-Gww">
+                                <rect key="frame" x="51" y="192" width="317" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1VC-J1-wMb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D5X-4u-pba"/>
+                    <connections>
+                        <outlet property="displayLabel" destination="4aT-Mg-Gww" id="H46-La-EyI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qSM-v3-H7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2586.4485981308408" y="107.55939524838014"/>
         </scene>
     </scenes>
     <resources>
