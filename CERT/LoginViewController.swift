@@ -43,6 +43,9 @@ class LoginViewController: UIViewController {
         if userNameField.text == "amulya"   && passwordField.text == "amulya"{
             isLogged = true
         }
+        if userNameField.text == "admin"   && passwordField.text == "admin"{
+            isLogged = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
