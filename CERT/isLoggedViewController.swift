@@ -11,15 +11,16 @@ class isLoggedViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     var isLogge = false
+     var uName : String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if isLogge{
-            displayLabel.text = "Login Successfull"
+            displayLabel.text = "Welcome to CERT \((uName)!)"
             displayLabel.textColor = UIColor.green
         }
         else{
-            displayLabel.text = "Login failed"
+            displayLabel.text = "Please Enter correct username or password"
             displayLabel.textColor = UIColor.red
         }
     }

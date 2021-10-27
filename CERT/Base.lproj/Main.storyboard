@@ -241,7 +241,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="eoF-lp-ErJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -266,7 +266,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="m8b-Jy-Pff"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -277,6 +277,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Next"/>
                                 <connections>
+                                    <action selector="submitButton:" destination="Ufq-dl-32x" eventType="touchUpInside" id="UHE-24-nA3"/>
                                     <segue destination="heG-RV-wcv" kind="show" id="uPh-mL-qeh"/>
                                 </connections>
                             </button>
@@ -320,6 +321,10 @@
                     <navigationItem key="navigationItem" id="WJ7-Zp-LvF">
                         <barButtonItem key="backBarButtonItem" title="Home" id="NmI-2b-hz6"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="PasswordField" destination="keE-b7-p0E" id="y9c-ZX-m32"/>
+                        <outlet property="userNameField" destination="EsJ-B9-BDT" id="bMU-lE-RJX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBB-y8-Hbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -568,10 +573,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aT-Mg-Gww">
-                                <rect key="frame" x="51" y="192" width="317" height="89"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aT-Mg-Gww">
+                                <rect key="frame" x="56" y="419" width="317" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

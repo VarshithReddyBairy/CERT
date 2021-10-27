@@ -22,7 +22,25 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginButtonPressed(_ sender: Any) {
-        if userNameField.text == "user"   && passwordField.text == "user123"{
+        if userNameField.text == "varshith"   && passwordField.text == "varshith"{
+            isLogged = true
+        }
+        if userNameField.text == "jayashanker"   && passwordField.text == "jayashanker"{
+            isLogged = true
+        }
+        if userNameField.text == "shital"   && passwordField.text == "shital"{
+            isLogged = true
+        }
+        if userNameField.text == "sharada"   && passwordField.text == "sharada"{
+            isLogged = true
+        }
+        if userNameField.text == "vinay"   && passwordField.text == "vinay"{
+            isLogged = true
+        }
+        if userNameField.text == "vineetha"   && passwordField.text == "vineetha"{
+            isLogged = true
+        }
+        if userNameField.text == "amulya"   && passwordField.text == "amulya"{
             isLogged = true
         }
     }
@@ -33,6 +51,7 @@ class LoginViewController: UIViewController {
         if transition == "isLogged"{
             let destination = segue.destination as! isLoggedViewController
             destination.isLogge = isLogged
+            destination.uName = userNameField.text!
         }
         isLogged = false
     }

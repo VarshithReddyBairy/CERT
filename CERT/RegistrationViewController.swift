@@ -7,23 +7,30 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class Auth{
+    var uname : String?
+    var pass : String?
+    init(uname : String , pass : String){
+        self.uname = uname
+        self.pass = pass
+    }
+}
 
+class RegistrationViewController: UIViewController {
+var login = [Auth]()
+    @IBOutlet weak var userNameField: UITextField!
+    
+    @IBOutlet weak var PasswordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  
+    @IBAction func submitButton(_ sender: Any) {
+        
+        let user = Auth(uname: userNameField.text!, pass: PasswordField.text!)
+        login.append(user)
     }
-    */
-
+    
 }
