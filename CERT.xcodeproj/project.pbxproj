@@ -163,6 +163,7 @@
 		B048D0FF2725AE140006C0FC /* CERT */ = {
 			isa = PBXGroup;
 			children = (
+				B0CFE1B5273030B90029C4D2 /* Helper Files */,
 				B0CAF370272E35C2003EAD73 /* View Controllers */,
 				B048D1002725AE140006C0FC /* AppDelegate.swift */,
 				B048D1022725AE140006C0FC /* SceneDelegate.swift */,
@@ -172,7 +173,6 @@
 				B048D1112725AE160006C0FC /* Info.plist */,
 				B048D1092725AE140006C0FC /* CERT.xcdatamodeld */,
 				B02B8D64272DF414006230E3 /* GoogleService-Info.plist */,
-				B0CAF373272E3615003EAD73 /* Constants.swift */,
 			);
 			path = CERT;
 			sourceTree = "<group>";
@@ -204,6 +204,14 @@
 				B048D137272600FA0006C0FC /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B0CFE1B5273030B90029C4D2 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0CAF373272E3615003EAD73 /* Constants.swift */,
+			);
+			path = "Helper Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
