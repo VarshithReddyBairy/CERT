@@ -6,11 +6,6 @@ target 'CERT' do
   use_frameworks!
 
   # Pods for CERT
- 
-	pod 'Firebase/Analytics'
-	pod 'Firebase/Auth'
-	pod 'Firebase/Core'
-	pod 'Firebase/Firestore' 
 
   target 'CERTTests' do
     inherit! :search_paths
