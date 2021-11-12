@@ -11,36 +11,56 @@ import Firebase
 
 class RegistrationViewController: UIViewController {
     
-    let roles = ["--Select Role--","Admin","User","Volunteer"]
+    let roles = ["--Select the Qualification--",
+                 "Doctor",
+                 "Nurse",
+                 "Paramedic",
+                 "EMPT",
+                 "EMR",
+                 "Fire Fighter",
+                 "Law Enforcement Officer",
+                 "CERT Trainee",
+                 "Others"]
     var pickerView = UIPickerView()
     
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var contactNumberField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
     
-    @IBOutlet weak var roleSelectField: UITextField!
+    
+    @IBOutlet weak var streetField: UITextField!
+    @IBOutlet weak var stateField: UITextField!
+    @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var zipCodeField: UITextField!
+
+    
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwdField: UITextField!
     @IBOutlet weak var verifyPasswdField: UITextField!
-    @IBOutlet weak var certifyField: UITextField!
-    @IBOutlet weak var lawOfficerField: UITextField!
+
+    
+    @IBOutlet weak var qualificationField: UITextField!
+    @IBOutlet weak var othersField: UITextField!
+    
+    
     @IBOutlet weak var signUpBtnOutlt: UIButton!
+    
     
     override func viewDidLoad() {
         pickerView.delegate = self
         pickerView.dataSource = self
-        roleSelectField.inputView  = pickerView
-        roleSelectField.textAlignment = .center
+        qualificationField.inputView  = pickerView
+        qualificationField.textAlignment = .center
     }
     
     func validateFields() -> String? {
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || contactNumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwdField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             verifyPasswdField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            certifyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            lawOfficerField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            roleSelectField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            streetField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            zipCodeField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            qualificationField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             messageAlert(title: "Empty Fields", message: "Please fill all the fields")
         }
         
@@ -86,23 +106,29 @@ class RegistrationViewController: UIViewController {
             let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwdField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let verifyPassword = verifyPasswdField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let hasCertifications = certifyField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let isLawOfficer = lawOfficerField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let roleOpted = roleSelectField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let streetAddress = streetField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let state = stateField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let city = cityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let zipcode = zipCodeField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let qualification = qualificationField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let others = othersField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 if err != nil{
                     self.messageAlert(title: "Account Sign up Error", message: "Error Creating user")
                 }
                 else{
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName": firstName,
-                                                              "lastName": lastName,
+                    db.collection("users").addDocument(data: ["First Name": firstName,
+                                                              "Last Name": lastName,
                                                               "uid": result!.user.uid,
-                                                              "email": email,
-                                                              "contactNumber": contactNumber,
-                                                              "hasCertifications": hasCertifications,
-                                                              "isLawOfficer": isLawOfficer,
-                                                              "role": roleOpted,
+                                                              "Email Address": email,
+                                                              "Contact Number": contactNumber,
+                                                              "Street Address": streetAddress,
+                                                              "State": state,
+                                                              "City": city,
+                                                              "Zipcode": zipcode,
+                                                              "Qualification": qualification,
+                                                              "Others": others,
                                                               "password": password,
                                                               "verifyPassword": verifyPassword]) { (error) in
                         if error != nil {
@@ -131,8 +157,8 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        roleSelectField.text = roles[row]
-        roleSelectField.resignFirstResponder()
+        qualificationField.text = roles[row]
+        qualificationField.resignFirstResponder()
     }
 
 }
