@@ -8,10 +8,15 @@
 import UIKit
 
 class launchScreenViewController: UIViewController {
-
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.addSubview(logoImageView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 
 }
