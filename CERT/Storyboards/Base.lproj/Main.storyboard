@@ -933,7 +933,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yDo-kd-QbZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transition Logo " translatesAutoresizingMaskIntoConstraints="NO" id="yDo-kd-QbZ">
                                 <rect key="frame" x="100" y="246" width="175" height="175"/>
                             </imageView>
                         </subviews>
@@ -946,6 +946,9 @@
                             <constraint firstItem="yDo-kd-QbZ" firstAttribute="centerX" secondItem="6Gr-yv-uZV" secondAttribute="centerX" id="hL7-Bt-BqB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoImageView" destination="yDo-kd-QbZ" id="Hto-xG-YWQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DiP-zf-UaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -954,6 +957,7 @@
     </scenes>
     <resources>
         <image name="CERT LOGO icon" width="778" height="778"/>
+        <image name="transition Logo " width="350" height="350"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
