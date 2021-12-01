@@ -925,39 +925,9 @@
             </objects>
             <point key="canvasLocation" x="2646.7289719626165" y="463.28293736501081"/>
         </scene>
-        <!--Launch Screen View Controller-->
-        <scene sceneID="10q-cA-087">
-            <objects>
-                <viewController id="WCe-Rw-1hH" customClass="launchScreenViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6Gr-yv-uZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transition Logo " translatesAutoresizingMaskIntoConstraints="NO" id="yDo-kd-QbZ">
-                                <rect key="frame" x="100" y="246" width="175" height="175"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="dSh-pB-e3G"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yDo-kd-QbZ" firstAttribute="leading" secondItem="dSh-pB-e3G" secondAttribute="leading" constant="100" id="7Gf-A1-lbW"/>
-                            <constraint firstItem="yDo-kd-QbZ" firstAttribute="top" secondItem="dSh-pB-e3G" secondAttribute="top" constant="246" id="a4R-7y-MFH"/>
-                            <constraint firstItem="yDo-kd-QbZ" firstAttribute="centerY" secondItem="6Gr-yv-uZV" secondAttribute="centerY" id="bWp-CR-WPs"/>
-                            <constraint firstItem="yDo-kd-QbZ" firstAttribute="centerX" secondItem="6Gr-yv-uZV" secondAttribute="centerX" id="hL7-Bt-BqB"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="logoImageView" destination="yDo-kd-QbZ" id="Hto-xG-YWQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DiP-zf-UaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-338" y="-974"/>
-        </scene>
     </scenes>
     <resources>
         <image name="CERT LOGO icon" width="778" height="778"/>
-        <image name="transition Logo " width="350" height="350"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
