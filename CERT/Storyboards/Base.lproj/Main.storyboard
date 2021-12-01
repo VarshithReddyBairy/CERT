@@ -695,6 +695,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="resetEmail:" destination="7zv-rw-6zE" eventType="editingChanged" id="iLD-nM-W3L"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -709,6 +712,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Reset Password">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="resetTapped:" destination="7zv-rw-6zE" eventType="touchUpInside" id="Qgi-iF-NcN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -727,6 +733,13 @@
                             <constraint firstItem="eHS-PW-ET6" firstAttribute="centerY" secondItem="gsd-fY-jE0" secondAttribute="centerY" id="fqX-KY-hcy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6pX-oK-nBx">
+                        <barButtonItem key="backBarButtonItem" title="LOGIN" id="LSD-v0-HQk"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="resetEmail" destination="PHM-Jp-OKW" id="dIs-9J-igJ"/>
+                        <outlet property="resetPasswordBtn" destination="siR-nK-2UF" id="xjQ-ci-3Im"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PN-ac-KKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -811,7 +824,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
                                         <connections>
-                                            <segue destination="7zv-rw-6zE" kind="presentation" id="aNd-Bm-nn6"/>
+                                            <segue destination="7zv-rw-6zE" kind="showDetail" id="aNd-Bm-nn6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYn-OA-cLY">
