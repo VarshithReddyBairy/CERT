@@ -163,6 +163,8 @@
 		B048D0FF2725AE140006C0FC /* CERT */ = {
 			isa = PBXGroup;
 			children = (
+				B02B8D64272DF414006230E3 /* GoogleService-Info.plist */,
+				B048D1112725AE160006C0FC /* Info.plist */,
 				B0CC672327571CF0009BFFFF /* Assets & Others */,
 				B0CC672227571CD0009BFFFF /* pList-Info */,
 				B0CC672127571CAD009BFFFF /* Delegates */,
@@ -223,8 +225,6 @@
 		B0CC672227571CD0009BFFFF /* pList-Info */ = {
 			isa = PBXGroup;
 			children = (
-				B048D1112725AE160006C0FC /* Info.plist */,
-				B02B8D64272DF414006230E3 /* GoogleService-Info.plist */,
 			);
 			path = "pList-Info";
 			sourceTree = "<group>";
