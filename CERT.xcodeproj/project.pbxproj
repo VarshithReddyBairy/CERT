@@ -35,7 +35,6 @@
 		B0CAF371272E35D4003EAD73 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D1042725AE140006C0FC /* HomeViewController.swift */; };
 		B0CAF372272E35D4003EAD73 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D1042725AE140006C0FC /* HomeViewController.swift */; };
 		B0CAF374272E3615003EAD73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAF373272E3615003EAD73 /* Constants.swift */; };
-		B0CC67202756E689009BFFFF /* launchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC671F2756E689009BFFFF /* launchScreenViewController.swift */; };
 		E1C39B4333354426148E7EB8 /* Pods_CERT_CERTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F92C1A47FFD57D2F400EAF /* Pods_CERT_CERTUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 		B048D137272600FA0006C0FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B0CAF373272E3615003EAD73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B0CC671F2756E689009BFFFF /* launchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchScreenViewController.swift; sourceTree = "<group>"; };
 		CF6D542E62A86C2DBABEE261 /* Pods-CERTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CERTTests.debug.xcconfig"; path = "Target Support Files/Pods-CERTTests/Pods-CERTTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F845F6899F5D3BCA6C439892 /* Pods_CERTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CERTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,7 +201,6 @@
 				3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */,
 				B048D1042725AE140006C0FC /* HomeViewController.swift */,
 				B048D137272600FA0006C0FC /* LoginViewController.swift */,
-				B0CC671F2756E689009BFFFF /* launchScreenViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -467,7 +464,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CC67202756E689009BFFFF /* launchScreenViewController.swift in Sources */,
 				B048D138272600FA0006C0FC /* LoginViewController.swift in Sources */,
 				B048D1052725AE140006C0FC /* HomeViewController.swift in Sources */,
 				B048D1012725AE140006C0FC /* AppDelegate.swift in Sources */,
@@ -669,7 +665,7 @@
 				INFOPLIST_FILE = CERT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -699,7 +695,7 @@
 				INFOPLIST_FILE = CERT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
