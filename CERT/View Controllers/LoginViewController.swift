@@ -27,9 +27,13 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToDashboard() {
-        let isHomeController = storyboard?.instantiateViewController(withIdentifier: "HomeVC")
-        view.window?.rootViewController = isHomeController
-        view.window?.makeKeyAndVisible()
+        prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
+//        let TBControllerVC = storyboard?.instantiateViewController(withIdentifier: "TBControllerVC")
+//        view.window?.rootViewController = TBControllerVC
+//        view.window?.makeKeyAndVisible()
+//        let isHomeController = storyboard?.instantiateViewController(withIdentifier: "HomeVC")
+//        view.window?.rootViewController = isHomeController
+//        view.window?.makeKeyAndVisible()
     }
     
     func messageAlert(title:String, message:String) {
