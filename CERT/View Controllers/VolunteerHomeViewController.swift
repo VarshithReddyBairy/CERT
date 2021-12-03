@@ -16,7 +16,7 @@ class VolunteerHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Volunteer DashBoard"
+        navigationItem.title = "DashBoard"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: self, action: #selector(userLogOut))
         
     }
@@ -29,16 +29,21 @@ class VolunteerHomeViewController: UIViewController {
                 let logoutNVC = UINavigationController(rootViewController: logoutVC)
                 self.present(logoutNVC, animated: true, completion: nil)
             } catch let err {
-                Service.showAlert
+                //Service.showAlert
             }
         }
         
     }
     
     @IBAction func reportClicked(_ sender: UIButton) {
-        let reportVC = storyboard?.instantiateViewController(withIdentifier: "cReport")
-        view?.window?.rootViewController = reportVC
-        view?.window?.makeKeyAndVisible()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let identifier = segue.identifier
+        if segue.identifier == "CPRT" {
+            let segueDestination = segue.destination as! CreateReportViewController
+        }
     }
     
 }

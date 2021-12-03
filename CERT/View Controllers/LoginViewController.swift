@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToDashboard() {
-        prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
+        //prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
 //        let TBControllerVC = storyboard?.instantiateViewController(withIdentifier: "TBControllerVC")
 //        view.window?.rootViewController = TBControllerVC
 //        view.window?.makeKeyAndVisible()
