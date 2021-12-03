@@ -29,6 +29,9 @@
 		B048D138272600FA0006C0FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D137272600FA0006C0FC /* LoginViewController.swift */; };
 		B048D139272600FA0006C0FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D137272600FA0006C0FC /* LoginViewController.swift */; };
 		B048D13A272600FA0006C0FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D137272600FA0006C0FC /* LoginViewController.swift */; };
+		B04A04272758B65E0013C0F3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A04262758B65D0013C0F3 /* TabBarViewController.swift */; };
+		B05A3D60275925650050AA55 /* VolunteerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A3D5F275925650050AA55 /* VolunteerHomeViewController.swift */; };
+		B05A3D62275961D50050AA55 /* CreateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A3D61275961D50050AA55 /* CreateReportViewController.swift */; };
 		B060BE54272B713B001B7796 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */; };
 		B060BE55272B713B001B7796 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */; };
 		B060BE56272B713B001B7796 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */; };
@@ -81,6 +84,9 @@
 		B048D1262725AE160006C0FC /* CERTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CERTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B048D1332725D4140006C0FC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		B048D137272600FA0006C0FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B04A04262758B65D0013C0F3 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B05A3D5F275925650050AA55 /* VolunteerHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerHomeViewController.swift; sourceTree = "<group>"; };
+		B05A3D61275961D50050AA55 /* CreateReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportViewController.swift; sourceTree = "<group>"; };
 		B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B0CAF373272E3615003EAD73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CF6D542E62A86C2DBABEE261 /* Pods-CERTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CERTTests.debug.xcconfig"; path = "Target Support Files/Pods-CERTTests/Pods-CERTTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +205,9 @@
 				3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */,
 				B048D1042725AE140006C0FC /* HomeViewController.swift */,
 				B048D137272600FA0006C0FC /* LoginViewController.swift */,
+				B04A04262758B65D0013C0F3 /* TabBarViewController.swift */,
+				B05A3D5F275925650050AA55 /* VolunteerHomeViewController.swift */,
+				B05A3D61275961D50050AA55 /* CreateReportViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -480,7 +489,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05A3D62275961D50050AA55 /* CreateReportViewController.swift in Sources */,
 				B048D138272600FA0006C0FC /* LoginViewController.swift in Sources */,
+				B05A3D60275925650050AA55 /* VolunteerHomeViewController.swift in Sources */,
 				B048D1052725AE140006C0FC /* HomeViewController.swift in Sources */,
 				B048D1012725AE140006C0FC /* AppDelegate.swift in Sources */,
 				3FBD60272726F16E00D97D13 /* isLoggedViewController.swift in Sources */,
@@ -488,6 +499,7 @@
 				B048D1032725AE140006C0FC /* SceneDelegate.swift in Sources */,
 				B048D10B2725AE140006C0FC /* CERT.xcdatamodeld in Sources */,
 				B048D1342725D4140006C0FC /* RegistrationViewController.swift in Sources */,
+				B04A04272758B65E0013C0F3 /* TabBarViewController.swift in Sources */,
 				B0CAF374272E3615003EAD73 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
