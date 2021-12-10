@@ -1,6 +1,0 @@
-framework module Pods_CERT_CERTUITests {
-  umbrella header "Pods-CERT-CERTUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
