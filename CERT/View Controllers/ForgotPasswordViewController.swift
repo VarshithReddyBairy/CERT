@@ -9,15 +9,17 @@ import UIKit
 import Firebase
 
 class ForgotPasswordViewController: UIViewController {
+
+// MARK: 1 - IBOutlets for Reset Email and Reset Password Button
     @IBOutlet weak var resetEmail: UITextField!
     @IBOutlet weak var resetPasswordBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+// MARK: 2 - NavBar Button for canceling the operation
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(doneFunction))
-
-        // Do any additional setup after loading the view.
     }
     
+// MARK: 3 - Function to trigger Message Alert
     func messageAlert(title:String, message:String) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
@@ -26,11 +28,13 @@ class ForgotPasswordViewController: UIViewController {
         }))
         self.present(errorAlert, animated: true, completion: nil)
     }
-    
+
+// MARK: 4 - Function to dismiss the Presented Controller
     @objc func doneFunction(){
         dismiss(animated: true)
     }
-    
+
+// MARK: 5 - Function to carry out Reset Email
     @IBAction func resetEmail(_ sender: UITextField) {
         let input = resetEmail.text!
         if input.isEmpty {
@@ -40,7 +44,8 @@ class ForgotPasswordViewController: UIViewController {
         resetPasswordBtn.isHidden = false
         resetPasswordBtn.isEnabled = true
     }
-    
+
+// MARK: 6 - Function to carry out when Reset button is Clicked
     @IBAction func resetTapped(_ sender: UIButton) {
         Auth.auth().sendPasswordReset(withEmail: resetEmail.text!) { (error) in
             if error == nil{
