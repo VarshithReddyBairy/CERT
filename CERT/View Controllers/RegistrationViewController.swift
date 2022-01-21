@@ -10,7 +10,8 @@ import FirebaseAuth
 import Firebase
 
 class RegistrationViewController: UIViewController {
-    
+
+// MARK: 1 - Initialized variables to store the data
     let roles = ["--Select the Qualification--",
                  "Doctor",
                  "Nurse",
@@ -23,7 +24,7 @@ class RegistrationViewController: UIViewController {
                  "Others"]
     var pickerView = UIPickerView()
     
-    
+// MARK: 2 - Created IBOutlets for the UI Elements & Controls
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var contactNumberField: UITextField!
@@ -53,7 +54,8 @@ class RegistrationViewController: UIViewController {
         qualificationField.inputView  = pickerView
         qualificationField.textAlignment = .center
     }
-    
+
+// MARK: 3 - Function to Validate the TextFields
     func validateFields() -> String? {
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || contactNumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwdField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -72,12 +74,14 @@ class RegistrationViewController: UIViewController {
         
         return nil
     }
-    
+
+// MARK: 4 - Function to validate the Password
     func isPasswordValid(_ password : String) -> Bool {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
-    
+
+// MARK: 5 - Function to trigger Message Alert
     func messageAlert(title:String, message:String) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
@@ -86,13 +90,15 @@ class RegistrationViewController: UIViewController {
         }))
         self.present(errorAlert, animated: true, completion: nil)
     }
-    
+
+// MARK: 6 - Function to trigger Segue Navigation to LoginViewController
     func transitionToDashboard() {
         let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginVC")
         view.window?.rootViewController = isLoginViewController
         view.window?.makeKeyAndVisible()
     }
     
+// MARK: 7 - Function to Carry out and Validate the Operation when Signup button Clicked
     @IBAction func signUpClicked(_ sender: UIButton) {
         let error = validateFields()
         
@@ -144,6 +150,7 @@ class RegistrationViewController: UIViewController {
     }
 }
 
+// MARK: 8 - Extension for delegate Methods of PickerView
 extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
