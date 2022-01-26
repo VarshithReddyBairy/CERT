@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E4V-Vn-Hbr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E4V-Vn-Hbr">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1098,8 +1098,9 @@
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Qc-ur-r2v">
-                                                                <rect key="frame" x="0.0" y="29" width="330" height="34"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="7Qc-ur-r2v">
+                                                                <rect key="frame" x="0.0" y="25" width="330" height="34"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="0.93106851729999995" green="0.93106851729999995" blue="0.93106851729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="8Tu-pt-Cfg"/>
@@ -1122,37 +1123,35 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6T2-XE-fwa">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dtd-Th-ggE">
                                                         <rect key="frame" x="0.0" y="823" width="330" height="92"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hazmot Hazard Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WX-mA-SQp">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hazmot Damage Impact:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox5-gA-TfS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="21"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="7qL-jD-YGq"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="Cul-7g-DNF"/>
-                                                                    <constraint firstAttribute="height" constant="21" id="LQO-Kd-Yew"/>
+                                                                    <constraint firstAttribute="width" constant="330" id="S1L-L6-6YH"/>
+                                                                    <constraint firstAttribute="height" constant="21" id="z06-V5-nmo"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVJ-o9-eNJ">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PaK-NX-ole">
                                                                 <rect key="frame" x="0.0" y="29" width="330" height="34"/>
-                                                                <color key="backgroundColor" red="0.93106851729999995" green="0.93106851729999995" blue="0.93106851729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="34" id="GcK-qg-VYi"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="cKM-wn-7wL"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="uVs-7D-vdt"/>
+                                                                    <constraint firstAttribute="width" constant="330" id="tC9-iB-kEg"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="vjy-ty-7Vs"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFC-xa-hkE">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMB-dD-RCq">
                                                                 <rect key="frame" x="0.0" y="71" width="330" height="21"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="7sy-LN-GRb"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Fxw-oQ-Loe"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="yEU-eU-DEg"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="FHx-mq-Amw"/>
+                                                                    <constraint firstAttribute="height" constant="21" id="M5v-sg-2g7"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="Mgw-yF-beI"/>
+                                                                    <constraint firstAttribute="width" constant="330" id="aXs-J8-dxw"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -1177,18 +1176,27 @@
                                                     <action selector="SubmitTapped:" destination="uNH-84-Ig3" eventType="touchUpInside" id="Jmr-n2-2DJ"/>
                                                 </connections>
                                             </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadImage" translatesAutoresizingMaskIntoConstraints="NO" id="IIL-RO-MZ5">
+                                                <rect key="frame" x="22.5" y="1242" width="330" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="3JP-U7-FLG"/>
+                                                    <constraint firstAttribute="width" constant="330" id="jJv-Vv-Alu"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.29483765360000003" green="0.71393716340000002" blue="0.58036327359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="F3p-ik-vOp" firstAttribute="leading" secondItem="lU7-z2-dgS" secondAttribute="leadingMargin" id="5Tt-q4-LNf"/>
                                             <constraint firstItem="tzk-Pe-Xj2" firstAttribute="top" secondItem="F3p-ik-vOp" secondAttribute="bottom" constant="36" id="IJC-Tp-0zW"/>
+                                            <constraint firstItem="IIL-RO-MZ5" firstAttribute="centerX" secondItem="lU7-z2-dgS" secondAttribute="centerX" id="Kx7-oc-UuG"/>
                                             <constraint firstAttribute="height" constant="1600" id="MDj-rA-aAI"/>
                                             <constraint firstItem="F3p-ik-vOp" firstAttribute="centerX" secondItem="lU7-z2-dgS" secondAttribute="centerX" id="V16-5W-J6n"/>
                                             <constraint firstItem="ANA-qF-dWm" firstAttribute="centerX" secondItem="lU7-z2-dgS" secondAttribute="centerX" id="VmR-ta-b3v"/>
                                             <constraint firstAttribute="bottom" secondItem="ANA-qF-dWm" secondAttribute="bottom" constant="31" id="Yu2-TB-PoR"/>
                                             <constraint firstItem="F3p-ik-vOp" firstAttribute="top" secondItem="lU7-z2-dgS" secondAttribute="top" constant="56" id="afM-70-3ql"/>
                                             <constraint firstItem="tzk-Pe-Xj2" firstAttribute="centerX" secondItem="lU7-z2-dgS" secondAttribute="centerX" id="oNS-RB-mCb"/>
-                                            <constraint firstItem="ANA-qF-dWm" firstAttribute="top" secondItem="tzk-Pe-Xj2" secondAttribute="bottom" constant="331" id="vcQ-aA-8dw"/>
+                                            <constraint firstItem="ANA-qF-dWm" firstAttribute="top" secondItem="IIL-RO-MZ5" secondAttribute="bottom" constant="46" id="wt0-g4-aOC"/>
+                                            <constraint firstItem="IIL-RO-MZ5" firstAttribute="top" secondItem="tzk-Pe-Xj2" secondAttribute="bottom" constant="35" id="x9K-Q3-TD9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1218,11 +1226,12 @@
                         <outlet property="casualityLabel" destination="79Y-Jf-JJP" id="078-UC-Oz4"/>
                         <outlet property="fireHazardImpactField" destination="0gf-Wa-ctM" id="pc8-hc-aeI"/>
                         <outlet property="fireHazardLabel" destination="GqR-r4-5gE" id="B0X-h7-4K4"/>
-                        <outlet property="hazmotDamageImpactField" destination="oVJ-o9-eNJ" id="ykf-1H-2uk"/>
-                        <outlet property="hazmotDamageLabel" destination="cFC-xa-hkE" id="PxO-2u-xvx"/>
+                        <outlet property="hazmotDamageImpactField" destination="PaK-NX-ole" id="hAi-7j-SrV"/>
+                        <outlet property="hazmotDamageLabel" destination="wMB-dD-RCq" id="1UF-Jv-L4b"/>
                         <outlet property="lattitudeField" destination="89b-Qd-MmO" id="h5r-u8-rJc"/>
                         <outlet property="longitudeField" destination="LdM-ro-tb3" id="6wa-pS-Lrf"/>
                         <outlet property="mapView" destination="F3p-ik-vOp" id="kZm-Pp-UXK"/>
+                        <outlet property="photoView" destination="IIL-RO-MZ5" id="nh3-WT-5vg"/>
                         <outlet property="stateField" destination="O0x-5O-9bL" id="L8U-gI-jAX"/>
                         <outlet property="strucDamageImpactField" destination="7Qc-ur-r2v" id="8jH-3D-6RG"/>
                         <outlet property="strucDamageLabel" destination="SXr-8e-1Be" id="cnc-Qf-Uck"/>
@@ -1351,6 +1360,7 @@
         <image name="Volunteer Logo" width="350" height="350"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="uploadImage" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
