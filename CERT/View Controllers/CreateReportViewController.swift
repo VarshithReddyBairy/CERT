@@ -372,6 +372,8 @@ extension CreateReportViewController:PHPickerViewControllerDelegate{
     }
 }
 
+
+
 extension CreateReportViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let img = info[.originalImage] as? UIImage else{
