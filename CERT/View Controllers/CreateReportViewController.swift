@@ -11,12 +11,14 @@ import FirebaseAuth
 import Firebase
 import PhotosUI
 
+// MARK: 1 -  Defined a protocol to Implement dropZoomIn method
 protocol HandleMapSearch: AnyObject {
     func dropZoomIn(placemark: MKPlacemark)
 }
 
 class CreateReportViewController: UIViewController {
     
+// MARK: 2 - Defined Variables & Arrays
     var selectedPin: MKPlacemark?
     var resultSearchController: UISearchController!
     let locationManager = CLLocationManager()
@@ -25,6 +27,8 @@ class CreateReportViewController: UIViewController {
     let hazmotImpactLevel = ["--Select Type--","Gas","Fluid","Solid","Other Type"]
     let structureDamageLevel = ["--Select Damage Level--","High","Medium","Low"]
     let casualitiesType = ["--Select Casuality--","Walking wounded (Minor)","Broken Arm/Leg (Delay)","Medical care (Immediate)","Deceased"]
+    
+// MARK: 3 - Defined Outlets for various UI Controls
     
     //MapView
     @IBOutlet weak var mapView: MKMapView!
@@ -41,6 +45,7 @@ class CreateReportViewController: UIViewController {
     @IBOutlet weak var strucDamageLabel: UILabel!
     @IBOutlet weak var hazmotDamageLabel: UILabel!
     
+    //ImageView
     @IBOutlet weak var photoView: UIImageView!
     
     //UITextFields
@@ -60,21 +65,30 @@ class CreateReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+// MARK: 4 - Added Tap gestures to dismiss keyboard & Present gallery
+        //Adding tapGesture to UIView
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
+        //Adding tapGesture to ImageView
+        photoView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageUploadPrompt))
+        photoView.addGestureRecognizer(gestureRecognizer)
+
+// MARK: 5 - Declared values to the UI Controls
         // Hide the Labels on Boot
         casualityLabel.isHidden = true
         fireHazardLabel.isHidden = true
         strucDamageLabel.isHidden = true
         hazmotDamageLabel.isHidden = true
         
-        //
+        //Assigned Delegates and methods to the object
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        //Action to carry out when user gives input into searchBar for location
         let locationSearch = storyboard?.instantiateViewController(withIdentifier: "LocationSearch") as! LocationSearch
         resultSearchController = UISearchController(searchResultsController: locationSearch)
         resultSearchController.searchResultsUpdater = locationSearch
@@ -89,46 +103,45 @@ class CreateReportViewController: UIViewController {
         definesPresentationContext = true
         locationSearch.mapView = mapView
         locationSearch.handleMapSearchDelegate = self
-        
-        //
+
+// MARK: 6 - Initializing PickerViews
+        //Fire Damage PickerView
         fireDamagePickerView.delegate = self
         fireDamagePickerView.dataSource = self
         fireDamagePickerView.tag = 1
         fireHazardImpactField.inputView = fireDamagePickerView
         fireHazardImpactField.textAlignment = .center
         
-        //
+        //Hazmot damage PickerView
         hazmotDamagePickerView.delegate = self
         hazmotDamagePickerView.dataSource = self
         hazmotDamagePickerView.tag = 2
         hazmotDamageImpactField.inputView = hazmotDamagePickerView
         hazmotDamageImpactField.textAlignment = .center
         
-        //
+        //Structure Damage PickerView
         structureDamagePickerView.delegate = self
         structureDamagePickerView.dataSource = self
         structureDamagePickerView.tag = 3
         strucDamageImpactField.inputView = structureDamagePickerView
         strucDamageImpactField.textAlignment = .center
         
-        //
+        //Casuality damage PickerView
         casualityDamagePickerView.delegate = self
         casualityDamagePickerView.dataSource = self
         casualityDamagePickerView.tag = 4
         casualityImpactField.inputView = casualityDamagePickerView
         casualityImpactField.textAlignment = .center
         
-        //
-        photoView.isUserInteractionEnabled = true
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageUploadPrompt))
-        photoView.addGestureRecognizer(gestureRecognizer)
-        
     }
     
+// MARK: 7 - Functions to carry out the task when user clicks on ImageView
+    //Objective-C wrapper function to trigger the UIAlert Action
     @objc func imageUploadPrompt(){
         alertTrigger()
     }
     
+    //Function that carry out the alert Action
     func alertTrigger(){
         let ac = UIAlertController(title: "Choose one", message: nil, preferredStyle: .actionSheet)
                 ac.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: triggerCamera))
@@ -137,6 +150,7 @@ class CreateReportViewController: UIViewController {
                 present(ac, animated: true)
     }
     
+    //Function that carry out the subAction of UI alert action controller
     func triggerCamera(action:UIAlertAction){
         let picker = UIImagePickerController()
         picker.sourceType = .camera
@@ -145,6 +159,7 @@ class CreateReportViewController: UIViewController {
         present(picker, animated: true)
     }
     
+    //Function that carry out the subAction of UI alert action controller
     func galleryImagePicker(action:UIAlertAction){
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
@@ -155,7 +170,7 @@ class CreateReportViewController: UIViewController {
         
     }
     
-    
+// MARK: 8 - IBAction that submits the data to firestore upon clicking the submit button
     @IBAction func SubmitTapped(_ sender: UIButton) {
         let address = addressField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let state = stateField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -184,7 +199,8 @@ class CreateReportViewController: UIViewController {
         }
         
     }
-    
+
+// MARK: 9 - Function that triggers the UIAlert
     func messageAlert(title:String, message:String) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
@@ -193,7 +209,8 @@ class CreateReportViewController: UIViewController {
         }))
         self.present(errorAlert, animated: true, completion: nil)
     }
-    
+
+// MARK: 10 - Function that takes Location Co-ordinates from textFields and Converts them into Non-Optionals
     @objc func getInfo(){
         let a:Double? = (locationManager.location?.coordinate.latitude)
         let b:Double? = (locationManager.location?.coordinate.longitude)
@@ -233,6 +250,7 @@ class CreateReportViewController: UIViewController {
 
 }
 
+// MARK: 11 - Extension to implement the MKMapViewDelegate method
 extension CreateReportViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {return nil}
@@ -253,6 +271,7 @@ extension CreateReportViewController: MKMapViewDelegate {
     
 }
 
+// MARK: 12 - Extension to implement the HandleMapSearch protocol
 extension CreateReportViewController: HandleMapSearch {
     func dropZoomIn(placemark: MKPlacemark) {
         //
@@ -274,11 +293,9 @@ extension CreateReportViewController: HandleMapSearch {
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
-    
-    
 }
 
+// MARK: 13 - Extension to implement the CLLocationManagerDelegate method
 extension CreateReportViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
@@ -299,6 +316,7 @@ extension CreateReportViewController: CLLocationManagerDelegate {
     
 }
 
+// MARK: 14 - Extension to implement the UIPickerViewDelegate &  UIPickerViewDataSource methods
 extension CreateReportViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -354,6 +372,7 @@ extension CreateReportViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
 }
 
+// MARK: 15 - Extension to implement the PHPickerViewControllerDelegate method
 extension CreateReportViewController:PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         if !results.isEmpty{
@@ -372,8 +391,7 @@ extension CreateReportViewController:PHPickerViewControllerDelegate{
     }
 }
 
-
-
+// MARK: 16 - Extension to implement the UIImagePickerControllerDelegate & UINavigationControllerDelegate methods
 extension CreateReportViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let img = info[.originalImage] as? UIImage else{
