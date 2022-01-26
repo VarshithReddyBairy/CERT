@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>&quot;We need to access your location to save you in-time&quot;</string>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;We need to access the camera to capture the incident&quot;</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
