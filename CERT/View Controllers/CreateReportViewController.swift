@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import Firebase
+import PhotosUI
 
 protocol HandleMapSearch: AnyObject {
     func dropZoomIn(placemark: MKPlacemark)
@@ -40,6 +41,8 @@ class CreateReportViewController: UIViewController {
     @IBOutlet weak var strucDamageLabel: UILabel!
     @IBOutlet weak var hazmotDamageLabel: UILabel!
     
+    @IBOutlet weak var photoView: UIImageView!
+    
     //UITextFields
     @IBOutlet weak var casualityImpactField: UITextField!
     @IBOutlet weak var fireHazardImpactField: UITextField!
@@ -56,6 +59,9 @@ class CreateReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         
         // Hide the Labels on Boot
         casualityLabel.isHidden = true
@@ -112,7 +118,43 @@ class CreateReportViewController: UIViewController {
         casualityImpactField.inputView = casualityDamagePickerView
         casualityImpactField.textAlignment = .center
         
+        //
+        photoView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageUploadPrompt))
+        photoView.addGestureRecognizer(gestureRecognizer)
+        
     }
+    
+    @objc func imageUploadPrompt(){
+        alertTrigger()
+    }
+    
+    func alertTrigger(){
+        let ac = UIAlertController(title: "Choose one", message: nil, preferredStyle: .actionSheet)
+                ac.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: triggerCamera))
+                ac.addAction(UIAlertAction(title: "Pick From Gallery", style: .default, handler: galleryImagePicker))
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                present(ac, animated: true)
+    }
+    
+    func triggerCamera(action:UIAlertAction){
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = false
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func galleryImagePicker(action:UIAlertAction){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        let controller = PHPickerViewController(configuration: configuration)
+        controller.delegate = self
+        present(controller, animated: true)
+        
+    }
+    
     
     @IBAction func SubmitTapped(_ sender: UIButton) {
         let address = addressField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -310,4 +352,33 @@ extension CreateReportViewController: UIPickerViewDelegate, UIPickerViewDataSour
         }
     }
     
+}
+
+extension CreateReportViewController:PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if !results.isEmpty{
+            let result = results.first!
+            let itemProvider = result.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                    guard let image = image as? UIImage else{return}
+                    DispatchQueue.main.async {
+                        self?.photoView.image = image
+                        self?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension CreateReportViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let img = info[.originalImage] as? UIImage else{
+            self.messageAlert(title: "Error", message: "Something Went Wrong. Please try again")
+            return
+        }
+        photoView.image = img
+        dismiss(animated: true, completion: nil)
+    }
 }
