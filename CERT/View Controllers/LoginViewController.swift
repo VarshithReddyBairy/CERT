@@ -26,16 +26,7 @@ class LoginViewController: UIViewController {
         }
         return nil
     }
-    
-    func transitionToDashboard() {
-        //prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
-//        let TBControllerVC = storyboard?.instantiateViewController(withIdentifier: "TBControllerVC")
-//        view.window?.rootViewController = TBControllerVC
-//        view.window?.makeKeyAndVisible()
-//        let isHomeController = storyboard?.instantiateViewController(withIdentifier: "HomeVC")
-//        view.window?.rootViewController = isHomeController
-//        view.window?.makeKeyAndVisible()
-    }
+
     
     func messageAlert(title:String, message:String) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -56,8 +47,6 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                 if error != nil {
                     self.messageAlert(title: "Login Page Error", message: "\(error!)")
-                }else{
-                    self.transitionToDashboard()
                 }
             }
         }
