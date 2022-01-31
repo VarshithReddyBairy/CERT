@@ -133,11 +133,25 @@ class CreateReportViewController: UIViewController {
     
     //Function that carry out the alert Action
     func alertTrigger(){
+        let cameraIcon = UIImage(named: "camera")
+        let galleryIcon = UIImage(named: "gallery")
+        let deleteIcon = UIImage(named: "delete")
+        
         let ac = UIAlertController(title: "Choose one", message: nil, preferredStyle: .actionSheet)
-                ac.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: triggerCamera))
-                ac.addAction(UIAlertAction(title: "Pick From Gallery", style: .default, handler: galleryImagePicker))
-                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                present(ac, animated: true)
+        let alert1 = UIAlertAction(title: "Open Camera", style: .default, handler: triggerCamera)
+        alert1.setValue(cameraIcon, forKey: "image")
+        ac.addAction(alert1)
+        
+        let alert2 = UIAlertAction(title: "Pick From Gallery", style: .default, handler: galleryImagePicker)
+        alert2.setValue(galleryIcon, forKey: "image")
+        ac.addAction(alert2)
+        
+        let alert3 = UIAlertAction(title: "Remove Picture", style: .destructive, handler: deletePicture)
+        alert3.setValue(deleteIcon, forKey: "image")
+        ac.addAction(alert3)
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
     //Function that carry out the subAction of UI alert action controller
@@ -158,6 +172,11 @@ class CreateReportViewController: UIViewController {
         controller.delegate = self
         present(controller, animated: true)
         
+    }
+    
+    //Function to remove picture
+    func deletePicture(action:UIAlertAction){
+        photoView.image = nil
     }
     
     
