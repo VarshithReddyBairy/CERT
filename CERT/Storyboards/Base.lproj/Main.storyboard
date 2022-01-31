@@ -1275,16 +1275,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Volunteer Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ogn-z2-i5Y">
                                 <rect key="frame" x="60" y="242" width="200" height="101"/>
                                 <color key="backgroundColor" red="0.41176470590000003" green="0.70588235290000001" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="MgB-Cr-B0F"/>
-                                    <constraint firstAttribute="height" constant="200" id="xt4-RO-4RR"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFf-N8-Mu9">
                                 <rect key="frame" x="62" y="125" width="196" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="SEH-vb-JbJ"/>
-                                    <constraint firstAttribute="height" constant="21" id="yam-ne-uMN"/>
+                                    <constraint firstAttribute="height" constant="21" id="Q2c-Vc-wXN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1293,8 +1288,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-Jc-Dad">
                                 <rect key="frame" x="62" y="398" width="196" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="MzE-bN-tXz"/>
-                                    <constraint firstAttribute="height" constant="40" id="Xli-cT-7ts"/>
+                                    <constraint firstAttribute="height" constant="40" id="yrJ-Ye-wql"/>
                                 </constraints>
                                 <color key="tintColor" red="0.82035451349999999" green="0.56249773189999996" blue="0.2527097344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -1311,13 +1305,16 @@
                         <viewLayoutGuide key="safeArea" id="T0V-PS-SdI"/>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.70588235290000001" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="81" id="1ZV-5i-C2P"/>
-                            <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Dwp-3Z-0Jo"/>
-                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Ras-JP-Akh"/>
-                            <constraint firstItem="NL7-Jc-Dad" firstAttribute="top" secondItem="ogn-z2-i5Y" secondAttribute="bottom" constant="55" id="Y5F-SZ-7Hs"/>
-                            <constraint firstItem="NL7-Jc-Dad" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="itn-s7-FAN"/>
-                            <constraint firstItem="ogn-z2-i5Y" firstAttribute="top" secondItem="WFf-N8-Mu9" secondAttribute="bottom" constant="96" id="mdb-AE-GrC"/>
-                            <constraint firstItem="T0V-PS-SdI" firstAttribute="bottom" secondItem="NL7-Jc-Dad" secondAttribute="bottom" constant="130" id="wqg-X1-k9S"/>
+                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="leading" secondItem="NL7-Jc-Dad" secondAttribute="leading" id="73H-97-qfl"/>
+                            <constraint firstItem="NL7-Jc-Dad" firstAttribute="top" secondItem="ogn-z2-i5Y" secondAttribute="bottom" constant="55" id="7dK-F9-UXF"/>
+                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="HUa-mD-6v0"/>
+                            <constraint firstItem="T0V-PS-SdI" firstAttribute="bottom" secondItem="NL7-Jc-Dad" secondAttribute="bottom" constant="130" id="Kcz-Ep-rNP"/>
+                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="81" id="OhG-Gq-oYN"/>
+                            <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerX" secondItem="NL7-Jc-Dad" secondAttribute="centerX" id="Q4q-s6-jL4"/>
+                            <constraint firstItem="ogn-z2-i5Y" firstAttribute="top" secondItem="WFf-N8-Mu9" secondAttribute="bottom" constant="96" id="RpQ-hp-hMd"/>
+                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="62" id="joh-Tc-dFD"/>
+                            <constraint firstItem="WFf-N8-Mu9" firstAttribute="trailing" secondItem="NL7-Jc-Dad" secondAttribute="trailing" id="qMc-So-NXH"/>
+                            <constraint firstItem="ogn-z2-i5Y" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="60" id="y15-Oj-GCV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TrS-ii-TXg"/>
