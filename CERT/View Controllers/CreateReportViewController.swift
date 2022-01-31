@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
 import PhotosUI
 
 // MARK: 1 -  Defined a protocol to Implement dropZoomIn method
@@ -38,12 +39,6 @@ class CreateReportViewController: UIViewController {
     var hazmotDamagePickerView = UIPickerView()
     var structureDamagePickerView = UIPickerView()
     var casualityDamagePickerView = UIPickerView()
-    
-    //Error labels to show when the user left any field
-    @IBOutlet weak var casualityLabel: UILabel!
-    @IBOutlet weak var fireHazardLabel: UILabel!
-    @IBOutlet weak var strucDamageLabel: UILabel!
-    @IBOutlet weak var hazmotDamageLabel: UILabel!
     
     //ImageView
     @IBOutlet weak var photoView: UIImageView!
@@ -76,11 +71,6 @@ class CreateReportViewController: UIViewController {
         photoView.addGestureRecognizer(gestureRecognizer)
 
 // MARK: 5 - Declared values to the UI Controls
-        // Hide the Labels on Boot
-        casualityLabel.isHidden = true
-        fireHazardLabel.isHidden = true
-        strucDamageLabel.isHidden = true
-        hazmotDamageLabel.isHidden = true
         
         //Assigned Delegates and methods to the object
         locationManager.delegate = self
@@ -170,8 +160,18 @@ class CreateReportViewController: UIViewController {
         
     }
     
-// MARK: 8 - IBAction that submits the data to firestore upon clicking the submit button
-    @IBAction func SubmitTapped(_ sender: UIButton) {
+    
+    func uploadReportDetails(){
+        guard let image = photoView.image, let imgData = image.jpegData(compressionQuality: 1.0) else{
+            messageAlert(title: "Error", message: "Something terribly went wrong")
+            return
+        }
+        let imageName = UUID().uuidString
+        let imageRef = Storage.storage().reference().child("/imageReports").child(imageName)
+        
+        let uploadMeta = StorageMetadata()
+        uploadMeta.contentType = "image/jpeg"
+        
         let address = addressField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let state = stateField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let latitude = lattitudeField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -183,21 +183,50 @@ class CreateReportViewController: UIViewController {
         let hazmotType = hazmotDamageImpactField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let db = Firestore.firestore()
-        db.collection("reports").addDocument(data: ["Address": address,
-                                                    "State": state,
-                                                    "Latitude": latitude,
-                                                    "Longitude": longitude,
-                                                    "Zipcode": zipcode,
-                                                    "Casuality": casuality,
-                                                    "Fire Hazard": fireHazard,
-                                                    "Structure Hazard": structureHazard,
-                                                    "Hazmot Type": hazmotType]) { (error) in
-            if error != nil {
-                self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
-            }
-            
-        }
         
+        imageRef.putData(imgData, metadata: uploadMeta){ (metadata, err) in
+            if let err = err {
+                self.messageAlert(title: "Error", message: err.localizedDescription)
+                return
+            }
+            imageRef.downloadURL(completion: {(url, err) in
+                if let err = err {
+                    self.messageAlert(title: "Error", message: err.localizedDescription)
+                    return
+                }
+                guard let url = url else {
+                    self.messageAlert(title: "Error", message: "Something Went Wrong")
+                    return
+                }
+                let urlString = url.absoluteString
+            
+                let dataRef = Firestore.firestore().collection("reports").document()
+                //let docID = dataRef.documentID
+                db.collection("reports").addDocument(data: ["Address": address,
+                                                            "State": state,
+                                                            "Latitude": latitude,
+                                                            "Longitude": longitude,
+                                                            "Zipcode": zipcode,
+                                                            "Casuality": casuality,
+                                                            "Fire Hazard": fireHazard,
+                                                            "Structure Hazard": structureHazard,
+                                                            "Hazmot Type": hazmotType,
+                                                            "documentID": imageName,
+                                                            "imageURL": urlString]) { (error) in
+                    if error != nil {
+                        self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
+                    }
+                    self.messageAlert(title: "Success", message: "Image Added and uploaded to Database Successfully")
+                    
+                }
+            })
+        }
+    }
+
+    
+// MARK: 8 - IBAction that submits the data to firestore upon clicking the submit button
+    @IBAction func SubmitTapped(_ sender: UIButton) {
+        uploadReportDetails()
     }
 
 // MARK: 9 - Function that triggers the UIAlert
