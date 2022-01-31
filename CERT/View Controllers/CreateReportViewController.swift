@@ -176,7 +176,11 @@ class CreateReportViewController: UIViewController {
     
     //Function to remove picture
     func deletePicture(action:UIAlertAction){
-        photoView.image = nil
+        if photoView.image == nil{
+            messageAlert(title: "Error", message: "No image is present in the imageView")
+        }
+        photoView.image = UIImage(named: "uploadImage")
+        messageAlert(title: "Removed Image", message: "Uploaded Image is removed")
     }
     
     
