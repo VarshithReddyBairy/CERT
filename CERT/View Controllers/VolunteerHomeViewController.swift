@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class VolunteerHomeViewController: UIViewController {
 
@@ -17,6 +18,12 @@ class VolunteerHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "DashBoard"
+        if Auth.auth().currentUser != nil {
+            let userName = Auth.auth().currentUser?.email
+            greetingLabel.text = "Welcome, "+userName!
+        } else {
+          print("Authentication Error")
+        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: self, action: #selector(userLogOut))
         
     }
