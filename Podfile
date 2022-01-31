@@ -10,7 +10,8 @@ target 'CERT' do
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
-	pod 'Firebase/Firestore' 
+	pod 'Firebase/Firestore'
+  	pod 'Firebase/Storage'
 
   target 'CERTTests' do
     inherit! :search_paths
