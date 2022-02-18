@@ -124,18 +124,19 @@ class RegistrationViewController: UIViewController {
                 }
                 else{
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["First Name": firstName,
-                                                              "Last Name": lastName,
-                                                              "uid": result!.user.uid,
-                                                              "Email Address": email,
-                                                              "Contact Number": contactNumber,
-                                                              "Street Address": streetAddress,
-                                                              "State": state,
-                                                              "City": city,
-                                                              "Zipcode": zipcode,
-                                                              "Qualification": qualification,
-                                                              "Others": others,
+                    db.collection("usersDB").addDocument(data: ["firstName": firstName,
+                                                              "lastName": lastName,
+//                                                              "uid": result!.user.uid,
+                                                              "emailAddress": email,
+                                                              "contactNumber": contactNumber,
+                                                              "streetAddress": streetAddress,
+                                                              "state": state,
+                                                              "city": city,
+                                                              "zipCode": zipcode,
+                                                              "qualification": qualification,
+                                                              "others": others,
                                                               "password": password,
+                                                              "createdAt" : "",
                                                               "verifyPassword": verifyPassword]) { (error) in
                         if error != nil {
                             self.messageAlert(title: "User Account Error", message: "Error Saving User data")
