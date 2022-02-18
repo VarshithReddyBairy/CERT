@@ -223,18 +223,30 @@ class CreateReportViewController: UIViewController {
                 }
                 let urlString = url.absoluteString
             
-                let dataRef = Firestore.firestore().collection("reports").document()
+                let dataRef = Firestore.firestore().collection("reportsDB").document()
                 //let docID = dataRef.documentID
-                db.collection("reports").addDocument(data: ["Address": address,
-                                                            "State": state,
-                                                            "Latitude": latitude,
-                                                            "Longitude": longitude,
-                                                            "Zipcode": zipcode,
-                                                            "Casuality": casuality,
-                                                            "Fire Hazard": fireHazard,
-                                                            "Structure Hazard": structureHazard,
-                                                            "Hazmot Type": hazmotType,
-                                                            "documentID": imageName,
+                db.collection("reportsDB").addDocument(data: ["address": address,
+                                                            "state": state,
+                                                            "latitude": latitude,
+                                                            "longitude": longitude,
+                                                            "zipcode": zipcode,
+                                                            "typeOfIncident": casuality,
+                                                            "description": fireHazard,
+                                                            "structuralDamageImpact": structureHazard,
+                                                              "red" : "",
+                                                              "green" : "",
+                                                              "black" : "",
+                                                              "yellow" : "",
+                                                              "incidentId" : "",
+                                                              "timedate" : "",
+                                                              "location" : "",
+                                                            "hazmatType": hazmotType,
+//                                                            "documentID": imageName,
+                                                              "impactLevel" : structureHazard,
+                                                              "notes" : "",
+                                                              "title" : "",
+                                                              "updatedAt" : "",
+                                                              "userName" : "",
                                                             "imageURL": urlString]) { (error) in
                     if error != nil {
                         self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
@@ -250,6 +262,10 @@ class CreateReportViewController: UIViewController {
 // MARK: 8 - IBAction that submits the data to firestore upon clicking the submit button
     @IBAction func SubmitTapped(_ sender: UIButton) {
         uploadReportDetails()
+//        lattitudeField.text = ""
+//        zipcodeField.text = ""
+//        addressField.text = ""
+        
     }
 
 // MARK: 9 - Function that triggers the UIAlert
