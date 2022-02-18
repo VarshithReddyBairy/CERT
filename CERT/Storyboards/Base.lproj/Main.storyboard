@@ -486,7 +486,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LEf-ef-BaV" userLabel="otherInfo Stack View">
                                                                 <rect key="frame" x="0.0" y="76" width="262" height="84"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If Others, Please Specify *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlA-Qa-sgw">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If Others, Please Specify " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlA-Qa-sgw">
                                                                         <rect key="frame" x="0.0" y="0.0" width="262" height="42"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="262" id="fXO-0D-URR"/>
