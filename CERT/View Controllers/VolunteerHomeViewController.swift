@@ -11,15 +11,16 @@ import Firebase
 
 class VolunteerHomeViewController: UIViewController {
 
+    var userName : String?
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var reportButtoOutlet: UIButton!
     @IBOutlet weak var volunteerImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "DashBoard"
+        navigationItem.title = ""
         if Auth.auth().currentUser != nil {
-            let userName = Auth.auth().currentUser?.email
+            userName = Auth.auth().currentUser?.email
             greetingLabel.text = "Welcome, "+userName!
         } else {
           print("Authentication Error")
@@ -48,8 +49,9 @@ class VolunteerHomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier
-        if segue.identifier == "CPRT" {
+        if identifier == "CPRT" {
             let segueDestination = segue.destination as! CreateReportViewController
+            segueDestination.username = userName
         }
     }
     
