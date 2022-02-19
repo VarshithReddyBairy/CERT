@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 import FirebaseStorage
 import PhotosUI
 
@@ -20,6 +21,7 @@ protocol HandleMapSearch: AnyObject {
 class CreateReportViewController: UIViewController {
     
 // MARK: 2 - Defined Variables & Arrays
+    var username : String?
     var selectedPin: MKPlacemark?
     var resultSearchController: UISearchController!
     let locationManager = CLLocationManager()
@@ -27,7 +29,7 @@ class CreateReportViewController: UIViewController {
     let fireHazardlevel = ["--Select Level--","Minor","Major","Medium","Spread Threat","Moderate","High","None"]
     let hazmotImpactLevel = ["--Select Type--","Gas","Fluid","Solid","Other Type"]
     let structureDamageLevel = ["--Select Damage Level--","High","Medium","Low"]
-    let casualitiesType = ["--Select Casuality--","Walking wounded (Minor)","Broken Arm/Leg (Delay)","Medical care (Immediate)","Deceased"]
+    let casualitiesType = ["--Select Incident Type--","EarthQuake","Tornado","Storm","Floods"]
     
 // MARK: 3 - Defined Outlets for various UI Controls
     
@@ -38,13 +40,14 @@ class CreateReportViewController: UIViewController {
     var fireDamagePickerView = UIPickerView()
     var hazmotDamagePickerView = UIPickerView()
     var structureDamagePickerView = UIPickerView()
-    var casualityDamagePickerView = UIPickerView()
+    var typeOfIncidentPickerView = UIPickerView()
+    var timeDatePicker = UIDatePicker()
     
     //ImageView
     @IBOutlet weak var photoView: UIImageView!
     
     //UITextFields
-    @IBOutlet weak var casualityImpactField: UITextField!
+    @IBOutlet weak var typeOfIncidentField: UITextField!
     @IBOutlet weak var fireHazardImpactField: UITextField!
     @IBOutlet weak var strucDamageImpactField: UITextField!
     @IBOutlet weak var hazmotDamageImpactField: UITextField!
@@ -53,6 +56,15 @@ class CreateReportViewController: UIViewController {
     @IBOutlet weak var lattitudeField: UITextField!
     @IBOutlet weak var longitudeField: UITextField!
     @IBOutlet weak var zipcodeField: UITextField!
+    @IBOutlet weak var reportTitleField: UITextField!
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var redCausalityField: UITextField!
+    @IBOutlet weak var greenCausalityField: UITextField!
+    @IBOutlet weak var yellowCausalityField: UITextField!
+    @IBOutlet weak var blackCausalityField: UITextField!
+    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var timePickerField: UITextField!
     
     //submit Button Outlet
     @IBOutlet weak var submitRprtBtnOutlt: UIButton!
@@ -85,6 +97,8 @@ class CreateReportViewController: UIViewController {
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search"
+        searchBar.searchTextField.backgroundColor = .black
+        searchBar.searchTextField.textColor = .systemBackground
         
         navigationItem.titleView = resultSearchController?.searchBar
         
@@ -117,15 +131,41 @@ class CreateReportViewController: UIViewController {
         strucDamageImpactField.textAlignment = .center
         
         //Casuality damage PickerView
-        casualityDamagePickerView.delegate = self
-        casualityDamagePickerView.dataSource = self
-        casualityDamagePickerView.tag = 4
-        casualityImpactField.inputView = casualityDamagePickerView
-        casualityImpactField.textAlignment = .center
+        typeOfIncidentPickerView.delegate = self
+        typeOfIncidentPickerView.dataSource = self
+        typeOfIncidentPickerView.tag = 4
+        typeOfIncidentField.inputView = typeOfIncidentPickerView
+        typeOfIncidentField.textAlignment = .center
+        
+        //DateTime PickerView
+        timeDatePicker.datePickerMode = .dateAndTime
+        timeDatePicker.preferredDatePickerStyle = .compact
+        timeDatePicker.frame.size = CGSize(width: 0, height: 300)
+        timeDatePicker.addTarget(self, action: #selector(dateChange(timeDatePicker:)), for: UIControl.Event.valueChanged)
+        timePickerField.inputView = timeDatePicker
+        timePickerField.textAlignment = .center
         
     }
     
-// MARK: 7 - Functions to carry out the task when user clicks on ImageView
+// MARK: 7 - Functions to carry out the task when user clicks on ImageView and DatePickerView
+    
+
+    @objc func dateChange(timeDatePicker: UIDatePicker){
+        timePickerField.text = formatDateAndTime(date: timeDatePicker.date)
+    }
+    
+    func formatDateAndTime(date: Date) -> String {
+        let currentDate = date
+        let timeZoneOffset = TimeZone.current.secondsFromGMT()
+        let epochDate = currentDate.timeIntervalSince1970
+        let timeZoneEpochOffset = (epochDate - Double(timeZoneOffset))
+        let timeZoneOffSetDate = Date(timeIntervalSince1970: timeZoneEpochOffset)
+        let timeZone = TimeZone.autoupdatingCurrent.abbreviation()
+        let dateInString = "\(timeZoneOffSetDate)"
+        return dateInString+" "+timeZone!
+    }
+    
+    
     //Objective-C wrapper function to trigger the UIAlert Action
     @objc func imageUploadPrompt(){
         alertTrigger()
@@ -197,13 +237,22 @@ class CreateReportViewController: UIViewController {
         
         let address = addressField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let state = stateField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let city = cityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let latitude = lattitudeField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let longitude = longitudeField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let zipcode = zipcodeField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let casuality = casualityImpactField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let casuality = typeOfIncidentField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let fireHazard = fireHazardImpactField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let structureHazard = strucDamageImpactField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let hazmotType = hazmotDamageImpactField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let red = redCausalityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let green = greenCausalityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let yellow = yellowCausalityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let black = blackCausalityField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let timedate = timePickerField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let notes = notesTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let title = reportTitleField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let username = userNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let db = Firestore.firestore()
         
@@ -231,27 +280,27 @@ class CreateReportViewController: UIViewController {
                                                             "longitude": longitude,
                                                             "zipcode": zipcode,
                                                             "typeOfIncident": casuality,
-                                                            "description": fireHazard,
+                                                            "description": "",
                                                             "structuralDamageImpact": structureHazard,
-                                                              "red" : "",
-                                                              "green" : "",
-                                                              "black" : "",
-                                                              "yellow" : "",
+                                                              "red" : red,
+                                                              "green" : green,
+                                                              "black" : black,
+                                                              "yellow" : yellow,
                                                               "incidentId" : "",
-                                                              "timedate" : "",
-                                                              "location" : "",
+                                                              "timedate" : timedate,
+                                                              "location" : city,
                                                             "hazmatType": hazmotType,
 //                                                            "documentID": imageName,
-                                                              "impactLevel" : structureHazard,
-                                                              "notes" : "",
-                                                              "title" : "",
+                                                              "impactLevel" : "",
+                                                              "notes" : notes,
+                                                              "title" : title,
                                                               "updatedAt" : "",
-                                                              "userName" : "",
+                                                              "userName" : username,
                                                             "imageURL": urlString]) { (error) in
                     if error != nil {
                         self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
                     }
-                    self.messageAlert(title: "Success", message: "Image Added and uploaded to Database Successfully")
+                    self.messageAlert(title: "Success", message: "Image Added and database updated Successfully")
                     
                 }
             })
@@ -285,6 +334,8 @@ class CreateReportViewController: UIViewController {
         let c:String? = selectedPin?.thoroughfare
         let d:String? = selectedPin?.administrativeArea
         let e:String? = selectedPin?.postalCode
+        let f:String? = selectedPin?.locality
+        let u:String? = username
         
         if let lat = a {
             if a! < 0 {
@@ -313,7 +364,11 @@ class CreateReportViewController: UIViewController {
         if let address = c{
             addressField.text = address
         }
-
+        
+        if let city = f{
+            cityField.text = city
+        }
+    
     }
 
 }
@@ -432,8 +487,8 @@ extension CreateReportViewController: UIPickerViewDelegate, UIPickerViewDataSour
             strucDamageImpactField.text = structureDamageLevel[row]
             strucDamageImpactField.resignFirstResponder()
         case 4:
-            casualityImpactField.text = casualitiesType[row]
-            casualityImpactField.resignFirstResponder()
+            typeOfIncidentField.text = casualitiesType[row]
+            typeOfIncidentField.resignFirstResponder()
         default: break
         }
     }
