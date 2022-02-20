@@ -27,6 +27,9 @@ class VolunteerHomeViewController: UIViewController {
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: self, action: #selector(userLogOut))
         
+        
+        //
+        reportButtoOutlet.createFloatingActionButton()
     }
     
     @objc func userLogOut(){
