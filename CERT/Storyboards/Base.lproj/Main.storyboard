@@ -600,7 +600,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2cY-au-VEa"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.41176474089999998" green="0.70588237050000002" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="19f-8r-SAG" firstAttribute="leading" secondItem="2cY-au-VEa" secondAttribute="leading" id="lnz-t2-Scu"/>
                             <constraint firstItem="2cY-au-VEa" firstAttribute="trailing" secondItem="19f-8r-SAG" secondAttribute="trailing" id="qiH-Iq-4Xf"/>
@@ -615,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VF2-1a-FxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="928"/>
+            <point key="canvasLocation" x="1294" y="1225"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="5PK-j0-EIm">
@@ -1570,7 +1570,7 @@
             <size key="intrinsicContentSize" width="42.5" height="31"/>
         </designable>
         <designable name="Wap-m9-enZ">
-            <size key="intrinsicContentSize" width="37.5" height="27.5"/>
+            <size key="intrinsicContentSize" width="34.5" height="24"/>
         </designable>
         <designable name="ogn-z2-i5Y">
             <size key="intrinsicContentSize" width="350" height="350"/>
@@ -1581,7 +1581,7 @@
         <image name="Volunteer Logo" width="350" height="350"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="uploadImage" width="128" height="128"/>
-        <image name="user.profile" width="14" height="14"/>
+        <image name="user.profile" width="11" height="11"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
