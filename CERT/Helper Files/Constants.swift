@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants{
     struct LoginStoryboard{
-        let isLoginController = "LoginVC"
+       static let isLoginController = "LoginVC"
     }
     struct HomeStoryBoard{
         let isHomeController = "HomeVC"

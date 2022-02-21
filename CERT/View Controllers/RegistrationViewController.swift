@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseDatabase
 
 class RegistrationViewController: UIViewController {
 
@@ -93,7 +94,7 @@ class RegistrationViewController: UIViewController {
 
 // MARK: 6 - Function to trigger Segue Navigation to LoginViewController
     func transitionToDashboard() {
-        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
         view.window?.rootViewController = isLoginViewController
         view.window?.makeKeyAndVisible()
     }
@@ -124,6 +125,8 @@ class RegistrationViewController: UIViewController {
                 }
                 else{
                     let db = Firestore.firestore()
+                    //let db = Database.database().reference()
+                    //db.child("usersDB").setValue(<#T##value: Any?##Any?#>)
                     db.collection("usersDB").addDocument(data: ["firstName": firstName,
                                                               "lastName": lastName,
 //                                                              "uid": result!.user.uid,
