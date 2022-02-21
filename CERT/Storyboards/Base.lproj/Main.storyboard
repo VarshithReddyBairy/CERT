@@ -576,6 +576,47 @@
             </objects>
             <point key="canvasLocation" x="461.60000000000002" y="807.79610194902557"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="FuJ-vi-Tmc">
+            <objects>
+                <viewController id="UvB-Bw-6DR" customClass="ProfileViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qgT-JI-nMj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="19f-8r-SAG">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileCell" id="djY-wN-bAw">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="djY-wN-bAw" id="goa-tF-8vP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2cY-au-VEa"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="19f-8r-SAG" firstAttribute="leading" secondItem="2cY-au-VEa" secondAttribute="leading" id="lnz-t2-Scu"/>
+                            <constraint firstItem="2cY-au-VEa" firstAttribute="trailing" secondItem="19f-8r-SAG" secondAttribute="trailing" id="qiH-Iq-4Xf"/>
+                            <constraint firstItem="2cY-au-VEa" firstAttribute="bottom" secondItem="19f-8r-SAG" secondAttribute="bottom" id="qmV-iy-6MG"/>
+                            <constraint firstItem="19f-8r-SAG" firstAttribute="top" secondItem="2cY-au-VEa" secondAttribute="top" id="uUs-zZ-e3Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i6T-rA-Aix"/>
+                    <connections>
+                        <outlet property="tableView" destination="19f-8r-SAG" id="dfT-q7-MRU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VF2-1a-FxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="928"/>
+        </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="5PK-j0-EIm">
             <objects>
@@ -1473,6 +1514,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-m9-enZ" customClass="RoundButton" customModule="CERT" customModuleProvider="target">
+                                <rect key="frame" x="16" y="78" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="HcX-oS-H3j"/>
+                                    <constraint firstAttribute="height" constant="30" id="XED-6H-i0S"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="dynamic">
+                                    <imageReference key="image" image="user.profile" symbolScale="large" renderingMode="template"/>
+                                    <color key="baseForegroundColor" red="0.41176474089999998" green="0.70588237050000002" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reportClicked:" destination="3j1-R1-3Dx" eventType="touchUpInside" id="m6W-mo-eh8"/>
+                                    <segue destination="UvB-Bw-6DR" kind="show" identifier="profileDetails" id="nCi-wY-K29"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T0V-PS-SdI"/>
                         <color key="backgroundColor" red="0.41176474089999998" green="0.70588237050000002" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1480,7 +1543,9 @@
                             <constraint firstItem="T0V-PS-SdI" firstAttribute="bottom" secondItem="NL7-Jc-Dad" secondAttribute="bottom" constant="20" id="2rM-W8-dyd"/>
                             <constraint firstItem="WFf-N8-Mu9" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Cli-f5-bwY"/>
                             <constraint firstItem="hHy-V6-J42" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="34" id="E1C-Ee-yHp"/>
+                            <constraint firstItem="Wap-m9-enZ" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="34" id="LXV-mi-VL0"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerY" secondItem="iL0-If-ph2" secondAttribute="centerY" id="MWM-W4-6dF"/>
+                            <constraint firstItem="Wap-m9-enZ" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="16" id="T2z-iD-EK4"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Ulj-DQ-qnz"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="top" secondItem="WFf-N8-Mu9" secondAttribute="bottom" constant="55" id="Xyd-kL-d3C"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="71" id="jwp-4G-us5"/>
@@ -1501,6 +1566,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="NL7-Jc-Dad">
+            <size key="intrinsicContentSize" width="42.5" height="31"/>
+        </designable>
+        <designable name="Wap-m9-enZ">
+            <size key="intrinsicContentSize" width="37.5" height="27.5"/>
+        </designable>
         <designable name="ogn-z2-i5Y">
             <size key="intrinsicContentSize" width="350" height="350"/>
         </designable>
@@ -1510,6 +1581,7 @@
         <image name="Volunteer Logo" width="350" height="350"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="uploadImage" width="128" height="128"/>
+        <image name="user.profile" width="14" height="14"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
