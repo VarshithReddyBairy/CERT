@@ -22,6 +22,7 @@ class RegistrationViewController: UIViewController {
                  "Fire Fighter",
                  "Law Enforcement Officer",
                  "CERT Trainee",
+                 "Volunteer",
                  "Others"]
     var pickerView = UIPickerView()
     
