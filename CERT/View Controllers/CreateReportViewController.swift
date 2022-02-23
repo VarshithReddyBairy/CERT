@@ -71,6 +71,12 @@ class CreateReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        //Default values for Casuality Fields
+        redCausalityField.text = "0"
+        greenCausalityField.text = "0"
+        yellowCausalityField.text = "0"
+        blackCausalityField.text = "0"
         
 // MARK: 4 - Added Tap gestures to dismiss keyboard & Present gallery
         //Adding tapGesture to UIView
