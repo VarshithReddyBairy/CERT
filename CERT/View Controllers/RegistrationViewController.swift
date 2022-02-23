@@ -54,6 +54,10 @@ class RegistrationViewController: UIViewController {
         pickerView.dataSource = self
         qualificationField.inputView  = pickerView
         qualificationField.textAlignment = .center
+        
+        //Adding tapGesture to UIView
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
     }
 
 // MARK: 3 - Function to Validate the TextFields
