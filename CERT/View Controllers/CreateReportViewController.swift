@@ -280,29 +280,29 @@ class CreateReportViewController: UIViewController {
             
                 let dataRef = Firestore.firestore().collection("reportsDB").document()
                 //let docID = dataRef.documentID
-                db.collection("reportsDB").addDocument(data: ["address": address,
+                db.collection("reportsDB").addDocument(data: [
+                                                            "address": address,
                                                             "state": state,
                                                             "latitude": latitude,
                                                             "longitude": longitude,
                                                             "zipcode": zipcode,
                                                             "typeOfIncident": casuality,
-                                                            "description": "",
                                                             "structuralDamageImpact": structureHazard,
-                                                              "red" : red,
-                                                              "green" : green,
-                                                              "black" : black,
-                                                              "yellow" : yellow,
-                                                              "incidentId" : "",
-                                                              "timedate" : timedate,
-                                                              "location" : city,
+                                                            "red" : red,
+                                                            "green" : green,
+                                                            "black" : black,
+                                                            "yellow" : yellow,
+                                                            "incidentId" : "",
+                                                            "timedate" : timedate,
+                                                            "location" : city,
                                                             "hazmatType": hazmotType,
-//                                                            "documentID": imageName,
-                                                              "impactLevel" : "",
-                                                              "notes" : notes,
-                                                              "title" : title,
-                                                              "updatedAt" : "",
-                                                              "userName" : username,
-                                                            "imageURL": urlString]) { (error) in
+                                                            "fireHazardImpact" : fireHazard,
+                                                            "notes" : notes,
+                                                            "title" : title,
+                                                            "updatedAt" : "",
+                                                            "userName" : username,
+                                                            "imageURL": urlString
+                ]) { (error) in
                     if error != nil {
                         self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
                     }
