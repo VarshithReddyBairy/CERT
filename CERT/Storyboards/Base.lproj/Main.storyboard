@@ -1315,7 +1315,7 @@
                                                     <constraint firstAttribute="width" constant="350" id="qp7-MW-fPo"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="paperplane" catalog="system" title=" Submit"/>
                                                 <connections>
                                                     <action selector="SubmitTapped:" destination="2nG-mr-I6l" eventType="touchUpInside" id="SDN-qF-dwV"/>
                                                 </connections>
@@ -1579,6 +1579,7 @@
     <resources>
         <image name="CERT LOGO icon" width="389" height="389"/>
         <image name="Volunteer Logo" width="350" height="350"/>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="uploadImage" width="128" height="128"/>
         <image name="user.profile" width="11" height="11"/>
