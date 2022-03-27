@@ -24,11 +24,11 @@ class VolunteerHomeViewController: UIViewController {
     var lastName : String?
     var contactNumber : Int?
     var emailAdd : String?
-    var  address : String?
+    var address : String?
     var city : String?
     var state : String?
     var qualification : String?
-    var details = ["First Name: Sharada", "Last Name : Noothalapati", "Contact Number : 2246078708" , "EmailId : sharadanoothalapati@gmail.com" , "Address : 1121 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
+    var details = ["First Name: Vinay", "Last Name : Paspula", "Contact Number : 6602158877" , "EmailId : vinaykmr149@gmail.com" , "Address : 1115 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
