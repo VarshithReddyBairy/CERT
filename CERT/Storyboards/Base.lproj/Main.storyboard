@@ -61,7 +61,7 @@
                                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="Ufq-dl-32x" kind="show" id="HOn-hR-qxz"/>
+                                                    <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="78V-E0-tY9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -88,7 +88,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                                 <connections>
-                                                    <segue destination="tdZ-uA-1UH" kind="show" id="g8D-ox-kZb"/>
+                                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="It1-Fa-aHU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -104,6 +104,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a0B-Bk-rhG"/>
+                    <connections>
+                        <segue destination="tdZ-uA-1UH" kind="show" identifier="loginPageSegue" id="wuV-z1-Ajq"/>
+                        <segue destination="Ufq-dl-32x" kind="show" identifier="signUpSegue" id="6G8-Ou-Zlt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -570,6 +574,7 @@
                         <outlet property="streetField" destination="dXh-xB-xMa" id="Umo-pO-LpD"/>
                         <outlet property="verifyPasswdField" destination="evc-Jm-V9d" id="0ef-42-upz"/>
                         <outlet property="zipCodeField" destination="1VB-Kv-zHD" id="nk9-md-wJk"/>
+                        <segue destination="tdZ-uA-1UH" kind="show" identifier="loginSegue" id="Qzg-Lg-z1U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBB-y8-Hbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -792,7 +797,6 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="tdZ-uA-1UH" eventType="touchUpInside" id="hAE-h3-eDG"/>
-                                            <segue destination="3j1-R1-3Dx" kind="show" id="9WW-zg-FwL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -810,6 +814,7 @@
                         <outlet property="logInBtnOut" destination="LYn-OA-cLY" id="gLb-gu-cdS"/>
                         <outlet property="passwordField" destination="aHU-Xc-ULY" id="RzX-k4-72f"/>
                         <outlet property="userNameField" destination="0c9-UJ-PQU" id="o47-1c-H3z"/>
+                        <segue destination="3j1-R1-3Dx" kind="show" identifier="volunteerHome" id="4Gs-3u-dHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phY-a9-V6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1576,6 +1581,9 @@
             <size key="intrinsicContentSize" width="350" height="350"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qzg-Lg-z1U"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="CERT LOGO icon" width="389" height="389"/>
         <image name="Volunteer Logo" width="350" height="350"/>
