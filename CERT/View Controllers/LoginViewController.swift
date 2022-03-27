@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+        performSegue(withIdentifier: "volunteerHome", sender: UIButton.self)
     }
     
 }
