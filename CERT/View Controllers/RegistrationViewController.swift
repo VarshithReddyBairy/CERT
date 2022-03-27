@@ -98,11 +98,11 @@ class RegistrationViewController: UIViewController {
     }
 
 // MARK: 6 - Function to trigger Segue Navigation to LoginViewController
-    func transitionToDashboard() {
-        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
-        view.window?.rootViewController = isLoginViewController
-        view.window?.makeKeyAndVisible()
-    }
+//    func transitionToDashboard() {
+//        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
+//        view.window?.rootViewController = isLoginViewController
+//        view.window?.makeKeyAndVisible()
+//    }
     
 // MARK: 7 - Function to Carry out and Validate the Operation when Signup button Clicked
     @IBAction func signUpClicked(_ sender: UIButton) {
@@ -152,10 +152,10 @@ class RegistrationViewController: UIViewController {
                     }
                     //Transition to User dashboard
                     self.messageAlert(title: "Sign Up Success", message: "Your User Account is Succesfully Created")
-                    self.transitionToDashboard()
                 }
             }
         }
+        self.performSegue(withIdentifier: "loginSegue", sender: UIButton.self)
     }
 }
 
