@@ -61,7 +61,7 @@
                                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="Ufq-dl-32x" kind="show" id="HOn-hR-qxz"/>
+                                                    <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQN-EB-YDF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -88,7 +88,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                                 <connections>
-                                                    <segue destination="tdZ-uA-1UH" kind="show" id="g8D-ox-kZb"/>
+                                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dxT-dS-emv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -104,6 +104,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a0B-Bk-rhG"/>
+                    <connections>
+                        <segue destination="Ufq-dl-32x" kind="show" identifier="signUpSegue" id="Koe-sW-l4P"/>
+                        <segue destination="tdZ-uA-1UH" kind="show" identifier="loginSegue" id="zxQ-eu-Uyp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -570,6 +574,7 @@
                         <outlet property="streetField" destination="dXh-xB-xMa" id="Umo-pO-LpD"/>
                         <outlet property="verifyPasswdField" destination="evc-Jm-V9d" id="0ef-42-upz"/>
                         <outlet property="zipCodeField" destination="1VB-Kv-zHD" id="nk9-md-wJk"/>
+                        <segue destination="tdZ-uA-1UH" kind="show" identifier="signUpSuccess" id="fIA-vb-WW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBB-y8-Hbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -674,7 +679,7 @@
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-Yl-j3T">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="-2" y="0.0" width="376" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Reset Password" id="Skx-at-P9b"/>
@@ -792,7 +797,6 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="tdZ-uA-1UH" eventType="touchUpInside" id="hAE-h3-eDG"/>
-                                            <segue destination="3j1-R1-3Dx" kind="show" id="9WW-zg-FwL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -810,6 +814,7 @@
                         <outlet property="logInBtnOut" destination="LYn-OA-cLY" id="gLb-gu-cdS"/>
                         <outlet property="passwordField" destination="aHU-Xc-ULY" id="RzX-k4-72f"/>
                         <outlet property="userNameField" destination="0c9-UJ-PQU" id="o47-1c-H3z"/>
+                        <segue destination="3j1-R1-3Dx" kind="show" identifier="LoginSuccessSegue" id="1hM-UB-xcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phY-a9-V6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1576,6 +1581,9 @@
             <size key="intrinsicContentSize" width="350" height="350"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="zxQ-eu-Uyp"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="CERT LOGO icon" width="389" height="389"/>
         <image name="Volunteer Logo" width="350" height="350"/>
