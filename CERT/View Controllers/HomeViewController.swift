@@ -14,6 +14,14 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func signUpClicked(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "signUpSegue", sender: UIButton.self)
+    }
+    
+    @IBAction func loginClicked(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "loginPageSegue", sender: UIButton.self)
+    }
 }
 
