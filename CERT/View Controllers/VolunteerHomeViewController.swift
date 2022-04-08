@@ -28,7 +28,7 @@ class VolunteerHomeViewController: UIViewController {
     var city : String?
     var state : String?
     var qualification : String?
-    var details = ["First Name: Vinay", "Last Name : Paspula", "Contact Number : 6602158877" , "EmailId : vinaykmr149@gmail.com" , "Address : 1115 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
+    var details = ["First Name: Vinay", "Last Name : Paspula", "Contact Number : 6602158877" , "EmailId : vinaykmr1490@gmail.com" , "Address : 1115 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
