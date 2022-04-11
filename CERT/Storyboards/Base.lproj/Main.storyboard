@@ -1563,9 +1563,11 @@
                         <outlet property="greetingLabel" destination="WFf-N8-Mu9" id="4NO-s6-5qF"/>
                         <outlet property="reportButtoOutlet" destination="NL7-Jc-Dad" id="F1Q-b8-iga"/>
                         <outlet property="volunteerImageView" destination="ogn-z2-i5Y" id="VCm-gx-UWP"/>
+                        <segue destination="kKE-2f-KAo" kind="unwind" identifier="unWindToHome" unwindAction="unwind:" id="8Kf-QM-AV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JD3-qt-DKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kKE-2f-KAo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1695.2" y="449.32533733133437"/>
         </scene>

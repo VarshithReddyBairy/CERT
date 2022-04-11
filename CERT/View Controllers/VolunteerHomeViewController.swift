@@ -28,7 +28,7 @@ class VolunteerHomeViewController: UIViewController {
     var city : String?
     var state : String?
     var qualification : String?
-    var details = ["First Name: Vinay", "Last Name : Paspula", "Contact Number : 6602158877" , "EmailId : vinaykmr149@gmail.com" , "Address : 1115 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
+    var details = ["First Name: Vinay", "Last Name : Paspula", "Contact Number : 6602158877" , "EmailId : vinaykmr1490@gmail.com" , "Address : 1115 N College Dr", "City : Maryville", "State : Missouri", "Qualification : CERT Trainee"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,46 +60,15 @@ class VolunteerHomeViewController: UIViewController {
         reportButtoOutlet.createFloatingActionButton()
     }
     
-    
-//    @IBAction func signOut(_ sender: Any) {
-//        let signOutAlertAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
-//            do{
-//                try Auth.auth().signOut()
-//                let logoutVC = LoginViewController()
-//                let logoutNVC = UINavigationController(rootViewController: logoutVC)
-//                self.present(logoutNVC, animated: true, completion: nil)
-//                let lg = self.storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
-//
-//                self.view.window?.rootViewController = lg
-//                self.view.window?.makeKeyAndVisible()
-//            } catch let err {
-//                //Service.showAlert
-//            }
-//        }
-        
-//        let lg = self.storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
-//
-//        self.view.window?.rootViewController = lg
-//        self.view.window?.makeKeyAndVisible()
-//    }
-    
-    @objc func userLogOut(){
-//        let signOutAlertAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
-//            do{
-//                try Auth.auth().signOut()
-//                let logoutVC = LoginViewController()
-//                let logoutNVC = UINavigationController(rootViewController: logoutVC)
-//                self.present(logoutNVC, animated: true, completion: nil)
-                let lg = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
 
-                view.window?.rootViewController = lg
-                view.window?.makeKeyAndVisible()
-//            } catch let err {
-//                //Service.showAlert
-//            }
-//        }
-//
+    @objc func userLogOut(){
+        unwind()
     }
+    
+    func unwind(){
+        performSegue(withIdentifier: "unWindToHome", sender: self)
+    }
+    
     
     @IBAction func reportClicked(_ sender: UIButton) {
         

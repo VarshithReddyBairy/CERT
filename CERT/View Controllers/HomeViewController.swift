@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: UIButton.self)
     }
     
+    @IBAction func unwind(_ seg: UIStoryboardSegue){
+        
+    }
 
 }
 
