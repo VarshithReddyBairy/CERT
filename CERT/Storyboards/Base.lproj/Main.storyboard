@@ -622,6 +622,91 @@
             </objects>
             <point key="canvasLocation" x="1294" y="1225"/>
         </scene>
+        <!--Reports Data View Controller-->
+        <scene sceneID="DlA-B5-vIT">
+            <objects>
+                <viewController id="NGp-Of-PnD" customClass="ReportsDataViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BrQ-21-Ti4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aW3-hH-6w4">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportsData" id="1du-ez-evL">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1du-ez-evL" id="nv7-S6-6nc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bpB-Zh-QsA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bpB-Zh-QsA" firstAttribute="bottom" secondItem="aW3-hH-6w4" secondAttribute="bottom" id="08V-4x-KMh"/>
+                            <constraint firstItem="bpB-Zh-QsA" firstAttribute="trailing" secondItem="aW3-hH-6w4" secondAttribute="trailing" id="1Ey-6L-K1F"/>
+                            <constraint firstItem="aW3-hH-6w4" firstAttribute="top" secondItem="bpB-Zh-QsA" secondAttribute="top" id="IN8-jc-a7E"/>
+                            <constraint firstItem="aW3-hH-6w4" firstAttribute="leading" secondItem="bpB-Zh-QsA" secondAttribute="leading" id="kE1-gX-1Ul"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0ky-eh-4jl"/>
+                    <connections>
+                        <outlet property="reportsDataTableView" destination="aW3-hH-6w4" id="t5Q-7Q-BBO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0r-eU-vaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="1986"/>
+        </scene>
+        <!--Reports View Controller-->
+        <scene sceneID="MLl-KX-VMh">
+            <objects>
+                <viewController id="jhJ-0U-SYX" customClass="ReportsViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FHk-8q-jAc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iMS-V5-7S1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportsCell" rowHeight="202" id="the-50-EAR">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="202"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="the-50-EAR" id="0FN-17-eXS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NGp-Of-PnD" kind="show" identifier="reportsDataSegue" id="QNH-jJ-jMa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5qz-WC-I4w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iMS-V5-7S1" firstAttribute="top" secondItem="5qz-WC-I4w" secondAttribute="top" id="j6s-Pj-TTT"/>
+                            <constraint firstItem="5qz-WC-I4w" firstAttribute="trailing" secondItem="iMS-V5-7S1" secondAttribute="trailing" id="nqT-TY-6UX"/>
+                            <constraint firstItem="iMS-V5-7S1" firstAttribute="leading" secondItem="5qz-WC-I4w" secondAttribute="leading" id="nrK-ss-C2N"/>
+                            <constraint firstItem="5qz-WC-I4w" firstAttribute="bottom" secondItem="iMS-V5-7S1" secondAttribute="bottom" id="q9S-cN-Wyc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="a8X-Qv-6SN"/>
+                    <connections>
+                        <outlet property="reportsTable" destination="iMS-V5-7S1" id="haJ-DN-3PG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wt1-t5-rsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933.5999999999999" y="1658.3208395802101"/>
+        </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="5PK-j0-EIm">
             <objects>
@@ -1541,6 +1626,15 @@
                                     <segue destination="UvB-Bw-6DR" kind="show" identifier="profileDetails" id="nCi-wY-K29"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lv-d2-tua">
+                                <rect key="frame" x="23" y="600" width="137" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show Reports"/>
+                                <connections>
+                                    <segue destination="jhJ-0U-SYX" kind="show" identifier="reportsSegue" id="ou9-HD-w6O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T0V-PS-SdI"/>
                         <color key="backgroundColor" red="0.41176474089999998" green="0.70588237050000002" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1577,7 +1671,7 @@
             <size key="intrinsicContentSize" width="42.5" height="31"/>
         </designable>
         <designable name="Wap-m9-enZ">
-            <size key="intrinsicContentSize" width="34.5" height="24"/>
+            <size key="intrinsicContentSize" width="37.5" height="27.5"/>
         </designable>
         <designable name="ogn-z2-i5Y">
             <size key="intrinsicContentSize" width="350" height="350"/>
@@ -1592,7 +1686,7 @@
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="uploadImage" width="128" height="128"/>
-        <image name="user.profile" width="11" height="11"/>
+        <image name="user.profile" width="14" height="14"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
