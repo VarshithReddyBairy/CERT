@@ -26,6 +26,8 @@ class VolunteerHomeViewController: UIViewController {
     var others: String = ""
     var contactNumber: String = ""
     var userName : String?
+    
+    var reportsArray : [Dictionary<String, Any>] = []
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var reportButtoOutlet: UIButton!
     @IBOutlet weak var volunteerImageView: UIImageView!
@@ -187,6 +189,28 @@ class VolunteerHomeViewController: UIViewController {
             detailsUpdated.append(qualification)
             destination.profile = detailsUpdated
         }
+        
+        if identifier == "reportsSegue"{
+            let destination = segue.destination as! ReportsViewController
+            
+            
+            let db = Firestore.firestore()
+                db.collection("reportsDB").getDocuments{(snapshot ,error) in
+                    if error == nil {
+                        for document in snapshot!.documents{
+                            let docdata = document.data()
+                            print("reports data")
+                            print(type(of: docdata))
+                            print(docdata)
+                            self.reportsArray.append(docdata)
+                            destination.reportsArray = self.reportsArray
+                        }
+                    }
+                }
+            
+        }
     }
+    
+
     
 }
