@@ -13,6 +13,7 @@ target 'CERT' do
 	pod 'Firebase/Firestore'
   	pod 'Firebase/Storage'
 	pod 'Firebase/Database'
+	pod 'FirebaseFirestoreSwift'
     
 
   target 'CERTTests' do
