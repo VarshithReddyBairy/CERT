@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2018 Google
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,27 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef FIRESTORE_CORE_SRC_BUNDLE_BUNDLE_ELEMENT_H_
-#define FIRESTORE_CORE_SRC_BUNDLE_BUNDLE_ELEMENT_H_
+
+#include "Firestore/core/src/auth/user.h"
+
+#include <utility>
+
+#include "Firestore/core/src/util/hard_assert.h"
 
 namespace firebase {
 namespace firestore {
-namespace bundle {
+namespace auth {
 
-/**
- * Abstract class to give all elements from bundles a common type.
- */
-class BundleElement {
- public:
-  enum class Type { Metadata, NamedQuery, DocumentMetadata, Document };
+User::User() : is_authenticated_{false} {
+}
 
-  virtual ~BundleElement() = default;
+User::User(std::string uid) : uid_{std::move(uid)}, is_authenticated_{true} {
+  HARD_ASSERT(!uid_.empty());
+}
 
-  virtual Type element_type() const = 0;
-};
+const User& User::Unauthenticated() {
+  static const User kUnauthenticated;
+  return kUnauthenticated;
+}
 
-}  // namespace bundle
+}  // namespace auth
 }  // namespace firestore
 }  // namespace firebase
-
-#endif  // FIRESTORE_CORE_SRC_BUNDLE_BUNDLE_ELEMENT_H_
