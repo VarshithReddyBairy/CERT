@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import FirebaseFirestore
 
 
 
@@ -75,7 +76,7 @@ class VolunteerHomeViewController: UIViewController {
 //                }
 //            }
             
-            db.collection("usersDB").whereField("emailAddress", isEqualTo: userName).getDocuments{(snapshot ,error) in
+            db.collection("usersDB").whereField("emailAddress", isEqualTo: userName!).getDocuments{(snapshot ,error) in
                 if error == nil {
 
                     for document in snapshot!.documents{
