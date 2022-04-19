@@ -21,6 +21,8 @@
 #import "FirebaseDatabase/Sources/Utilities/FStringUtilities.h"
 
 #define ARC4RANDOM_MAX 0x100000000
+#define INTEGER_32_MIN (-2147483648)
+#define INTEGER_32_MAX 2147483647
 
 #pragma mark -
 #pragma mark C functions
@@ -154,13 +156,9 @@ void firebaseJobsTroll(void) {
 
     // Sanitize the database URL by removing the path component, which may
     // contain invalid URL characters.
-    NSRange lastMatch = [url rangeOfString:originalPathString
-                                   options:NSBackwardsSearch];
     NSString *sanitizedUrlWithoutPath =
-        (lastMatch.location != NSNotFound)
-            ? [url substringToIndex:lastMatch.location]
-            : url;
-
+        [url stringByReplacingOccurrencesOfString:originalPathString
+                                       withString:@""];
     NSURLComponents *urlComponents =
         [NSURLComponents componentsWithString:sanitizedUrlWithoutPath];
     if (!urlComponents) {
@@ -309,14 +307,6 @@ void firebaseJobsTroll(void) {
     return nil;
 }
 
-+ (NSInteger)int32min {
-    return INTEGER_32_MIN;
-}
-
-+ (NSInteger)int32max {
-    return INTEGER_32_MAX;
-}
-
 + (NSString *)ieee754StringForNumber:(NSNumber *)val {
     double d = [val doubleValue];
     NSData *data = [NSData dataWithBytes:&d length:sizeof(double)];
@@ -327,10 +317,6 @@ void firebaseJobsTroll(void) {
         [str appendFormat:@"%02x", byte];
     }
     return str;
-}
-
-+ (BOOL)tryParseString:(NSString *)string asInt:(NSInteger *)integer {
-    return tryParseStringToInt(string, integer);
 }
 
 static inline BOOL tryParseStringToInt(__unsafe_unretained NSString *str,
