@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  CERT
 //
-//  Created by Varshith Reddy Bairy on 2/20/22.
+//  Created by CERT on 2/20/22.
 //
 
 import UIKit
