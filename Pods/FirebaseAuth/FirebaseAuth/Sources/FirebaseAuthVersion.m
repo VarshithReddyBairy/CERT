@@ -14,32 +14,12 @@
  * limitations under the License.
  */
 
-#import <TargetConditionals.h>
-#if !TARGET_OS_OSX
+#import "FirebaseAuth/Sources/Public/FirebaseAuth/FirebaseAuthVersion.h"
 
-#import <Foundation/Foundation.h>
+// Convert the macro to a string
+#define STR(x) STR_EXPAND(x)
+#define STR_EXPAND(x) #x
 
-NS_ASSUME_NONNULL_BEGIN
+const double FirebaseAuthVersionNum = FIRAuth_MINOR_VERSION;
 
-/**
- *  @brief The APNs token type for the app.
- */
-typedef NS_ENUM(NSInteger, FIRAuthAPNSTokenType) {
-
-  /** Unknown token type.
-      The actual token type will be detected from the provisioning profile in the app's bundle.
-   */
-  FIRAuthAPNSTokenTypeUnknown,
-
-  /** Sandbox token type.
-   */
-  FIRAuthAPNSTokenTypeSandbox,
-
-  /** Production token type.
-   */
-  FIRAuthAPNSTokenTypeProd,
-} NS_SWIFT_NAME(AuthAPNSTokenType);
-
-NS_ASSUME_NONNULL_END
-
-#endif
+const char *const FirebaseAuthVersionStr = (const char *const)STR(FIRAuth_VERSION);
