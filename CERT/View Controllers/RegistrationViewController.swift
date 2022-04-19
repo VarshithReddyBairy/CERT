@@ -2,13 +2,14 @@
 //  RegistrationViewController.swift
 //  CERT
 //
-//  Created by JayaShankar Mangina on 10/24/21.
+//  Created by CERT on 10/24/21.
 //
 
 import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import FirebaseFirestore
 
 class RegistrationViewController: UIViewController {
 
