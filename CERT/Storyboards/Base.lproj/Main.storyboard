@@ -790,10 +790,10 @@
             </objects>
             <point key="canvasLocation" x="2798" y="-276"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="a6z-64-edG">
             <objects>
-                <viewController id="M1E-2x-TKq" sceneMemberID="viewController">
+                <viewController id="M1E-2x-TKq" customClass="ChatViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KHb-Nb-ppD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1588,14 +1588,14 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedImageView" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-Jc-Dad" customClass="RoundButton" customModule="CERT" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-Jc-Dad">
                                 <rect key="frame" x="295" y="583" width="64" height="64"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.29483765360000003" green="0.71393716340000002" blue="0.58036327359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Nvf-VS-wax"/>
                                     <constraint firstAttribute="width" constant="64" id="oBd-1Z-lU8"/>
                                 </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.29483765360000003" green="0.71393716340000002" blue="0.58036327359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="dynamic">
                                     <imageReference key="image" image="pencil" catalog="system" symbolScale="large" renderingMode="template"/>
@@ -1603,7 +1603,7 @@
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reportClicked:" destination="3j1-R1-3Dx" eventType="touchUpInside" id="gmd-s6-H9v"/>
@@ -1619,13 +1619,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-m9-enZ" customClass="RoundButton" customModule="CERT" customModuleProvider="target">
-                                <rect key="frame" x="16" y="78" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-m9-enZ">
+                                <rect key="frame" x="16" y="583" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="HcX-oS-H3j"/>
-                                    <constraint firstAttribute="height" constant="30" id="XED-6H-i0S"/>
-                                </constraints>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="dynamic">
@@ -1634,13 +1631,14 @@
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reportClicked:" destination="3j1-R1-3Dx" eventType="touchUpInside" id="m6W-mo-eh8"/>
                                     <segue destination="UvB-Bw-6DR" kind="show" identifier="profileDetails" id="nCi-wY-K29"/>
                                 </connections>
                             </button>
+<<<<<<< Updated upstream
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lv-d2-tua">
                                 <rect key="frame" x="23" y="600" width="137" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1648,6 +1646,24 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Show Reports"/>
                                 <connections>
                                     <segue destination="jhJ-0U-SYX" kind="show" identifier="reportsSegue" id="ou9-HD-w6O"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-mX-G4p">
+                                <rect key="frame" x="156" y="583" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="dynamic">
+                                    <imageReference key="image" image="user.profile" symbolScale="large" renderingMode="template"/>
+                                    <color key="baseForegroundColor" red="0.41176474089999998" green="0.70588237050000002" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reportClicked:" destination="3j1-R1-3Dx" eventType="touchUpInside" id="IPf-p1-nFp"/>
+>>>>>>> Stashed changes
                                 </connections>
                             </button>
                         </subviews>
@@ -1657,9 +1673,7 @@
                             <constraint firstItem="T0V-PS-SdI" firstAttribute="bottom" secondItem="NL7-Jc-Dad" secondAttribute="bottom" constant="20" id="2rM-W8-dyd"/>
                             <constraint firstItem="WFf-N8-Mu9" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Cli-f5-bwY"/>
                             <constraint firstItem="hHy-V6-J42" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="34" id="E1C-Ee-yHp"/>
-                            <constraint firstItem="Wap-m9-enZ" firstAttribute="top" secondItem="T0V-PS-SdI" secondAttribute="top" constant="34" id="LXV-mi-VL0"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerY" secondItem="iL0-If-ph2" secondAttribute="centerY" id="MWM-W4-6dF"/>
-                            <constraint firstItem="Wap-m9-enZ" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="16" id="T2z-iD-EK4"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="centerX" secondItem="iL0-If-ph2" secondAttribute="centerX" id="Ulj-DQ-qnz"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="top" secondItem="WFf-N8-Mu9" secondAttribute="bottom" constant="55" id="Xyd-kL-d3C"/>
                             <constraint firstItem="ogn-z2-i5Y" firstAttribute="leading" secondItem="T0V-PS-SdI" secondAttribute="leading" constant="71" id="jwp-4G-us5"/>
