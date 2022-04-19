@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F54B73E280E6F370039DC43 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54B73D280E6F370039DC43 /* ReportsViewController.swift */; };
+		3F54B740280EDC080039DC43 /* ReportsDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54B73F280EDC080039DC43 /* ReportsDataViewController.swift */; };
 		3FBD60272726F16E00D97D13 /* isLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */; };
 		3FE611A027C33957003A9A26 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6119F27C33957003A9A26 /* ProfileViewController.swift */; };
 		7F78927540BB893A50201B09 /* Pods_CERT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B299CC232E6E985B1C0E0FD /* Pods_CERT.framework */; };
@@ -65,6 +67,8 @@
 /* Begin PBXFileReference section */
 		0A23FB454AA7DDB36A4584A5 /* Pods-CERT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CERT.debug.xcconfig"; path = "Target Support Files/Pods-CERT/Pods-CERT.debug.xcconfig"; sourceTree = "<group>"; };
 		3DBFB92C7BF37CDD031CD2AA /* Pods-CERTTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CERTTests.release.xcconfig"; path = "Target Support Files/Pods-CERTTests/Pods-CERTTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F54B73D280E6F370039DC43 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		3F54B73F280EDC080039DC43 /* ReportsDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsDataViewController.swift; sourceTree = "<group>"; };
 		3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isLoggedViewController.swift; sourceTree = "<group>"; };
 		3FE6119F27C33957003A9A26 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		40A8AFF7D146A35AB9CDBE52 /* Pods-CERT-CERTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CERT-CERTUITests.debug.xcconfig"; path = "Target Support Files/Pods-CERT-CERTUITests/Pods-CERT-CERTUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		B0CAF370272E35C2003EAD73 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F54B73D280E6F370039DC43 /* ReportsViewController.swift */,
 				B060BE53272B713B001B7796 /* ForgotPasswordViewController.swift */,
 				B048D1332725D4140006C0FC /* RegistrationViewController.swift */,
 				3FBD60262726F16E00D97D13 /* isLoggedViewController.swift */,
@@ -217,6 +222,7 @@
 				B0EC93BE2759EA600090A3A1 /* LocationSearch.swift */,
 				3FE6119F27C33957003A9A26 /* ProfileViewController.swift */,
 				B0FE683E27C3710000601651 /* VolunteerHomeViewController.swift */,
+				3F54B73F280EDC080039DC43 /* ReportsDataViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F54B73E280E6F370039DC43 /* ReportsViewController.swift in Sources */,
 				B013268B27C2B25C0064E8EC /* roundedImageView.swift in Sources */,
 				B011C56027C05C80001A5316 /* roundButton.swift in Sources */,
 				B05A3D62275961D50050AA55 /* CreateReportViewController.swift in Sources */,
@@ -516,6 +523,7 @@
 				B048D1342725D4140006C0FC /* RegistrationViewController.swift in Sources */,
 				B0EC93BF2759EA600090A3A1 /* LocationSearch.swift in Sources */,
 				B0CAF374272E3615003EAD73 /* Constants.swift in Sources */,
+				3F54B740280EDC080039DC43 /* ReportsDataViewController.swift in Sources */,
 				B013268927C2AAF50064E8EC /* floatingActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
