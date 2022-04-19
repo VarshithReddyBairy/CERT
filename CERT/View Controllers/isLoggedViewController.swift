@@ -2,7 +2,7 @@
 //  isLoggedViewController.swift
 //  CERT
 //
-//  Created by Varshith Reddy Bairy on 10/25/21.
+//  Created by CERT on 10/25/21.
 //
 
 import UIKit
