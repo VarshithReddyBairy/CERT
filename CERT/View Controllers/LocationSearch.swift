@@ -2,7 +2,7 @@
 //  LocationSearch.swift
 //  CERT
 //
-//  Created by JayaShankar Mangina on 12/3/21.
+//  Created by CERT on 12/3/21.
 //
 
 import MapKit
