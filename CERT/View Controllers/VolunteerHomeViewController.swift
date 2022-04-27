@@ -125,21 +125,11 @@ class VolunteerHomeViewController: UIViewController {
     }
     
     @objc func userLogOut(){
-//        let signOutAlertAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
-//            do{
-//                try Auth.auth().signOut()
-//                let logoutVC = LoginViewController()
-//                let logoutNVC = UINavigationController(rootViewController: logoutVC)
-//                self.present(logoutNVC, animated: true, completion: nil)
-                let lg = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
-
-                view.window?.rootViewController = lg
-                view.window?.makeKeyAndVisible()
-//            } catch let err {
-//                //Service.showAlert
-//            }
-//        }
-//
+        unwind()
+    }
+    
+    func unwind(){
+        performSegue(withIdentifier: "backToLogin", sender: self)
     }
     
     @IBAction func ChatButtonClicked(_ sender: UIButton) {
