@@ -11,17 +11,21 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import FirebaseFirestore
+
 class UserDetails{
     
 }
 
 class VolunteerHomeViewController: UIViewController {
 
+    @IBOutlet weak var customTabBarView: UIView!
     var userName : String?
     @IBOutlet weak var greetingLabel: UILabel!
-    @IBOutlet weak var reportButtoOutlet: UIButton!
+    @IBOutlet weak var reportBtnOutlet: UIButton!
     @IBOutlet weak var volunteerImageView: UIImageView!
     @IBOutlet weak var chatViewButtonOutlet: RoundButton!
+    @IBOutlet weak var profileBtnOutlet: UIButton!
+    @IBOutlet weak var viewReportsBtnOutlet: UIButton!
     
     var lastName: String = ""
         var streetAddress: String = ""
@@ -44,6 +48,8 @@ class VolunteerHomeViewController: UIViewController {
         var detailsUpdated : [String] = []
     
     override func viewDidLoad() {
+        generateRoundButtons()
+        generateTabBar()
         super.viewDidLoad()
         navigationItem.title = ""
         if Auth.auth().currentUser != nil {
@@ -51,18 +57,7 @@ class VolunteerHomeViewController: UIViewController {
             greetingLabel.text = "Welcome, "+userName!
             let uid = Auth.auth().currentUser?.uid
             print("uid : \(uid!)")
-//            Database.database().reference().child("usersDB").child(uid!).observe(.value, with: { (snapshot) in
-//                if let dictionary = snapshot.value as? [String: AnyObject]{
-//                    self.firstName = dictionary["firstName"] as? String
-//                }
-//            }, withCancel: nil)
-//            Database.database().reference().child("usersDB").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-//                if let dictionary = snapshot.value as? [String: AnyObject]{
-//                    self.firstName = dictionary["firstName"] as? String
-//                }
-//
-//            }, withCancel: nil)
-//        }
+
             
             
             let db = Firestore.firestore()
@@ -124,6 +119,30 @@ class VolunteerHomeViewController: UIViewController {
         //reportButtoOutlet.createFloatingActionButton()
     }
     
+    @IBAction func viewReportsClicked(_ sender: UIButton) {
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { (t) in
+            self.removeSpinner()
+        }
+        performSegue(withIdentifier: "reportsSegue", sender: UIButton.self)
+    }
+    func generateRoundButtons(){
+        chatViewButtonOutlet.layer.cornerRadius = chatViewButtonOutlet.frame.height/2
+        chatViewButtonOutlet.clipsToBounds = true
+        
+        viewReportsBtnOutlet.layer.cornerRadius = viewReportsBtnOutlet.frame.height/2
+        viewReportsBtnOutlet.clipsToBounds = true
+        
+        profileBtnOutlet.layer.cornerRadius = profileBtnOutlet.frame.height/2
+        profileBtnOutlet.clipsToBounds = true
+        
+        reportBtnOutlet.layer.cornerRadius = reportBtnOutlet.frame.height/2
+        reportBtnOutlet.clipsToBounds = true
+    }
+    func generateTabBar(){
+        customTabBarView.layer.cornerRadius = customTabBarView.frame.size.height/2
+        customTabBarView.clipsToBounds = true
+    }
     @objc func userLogOut(){
         unwind()
     }
@@ -133,6 +152,10 @@ class VolunteerHomeViewController: UIViewController {
     }
     
     @IBAction func ChatButtonClicked(_ sender: UIButton) {
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { (t) in
+            self.removeSpinner()
+        }
         guard let url = URL(string: "whatsapp://") else { return }
         
         if UIApplication.shared.canOpenURL(url){
@@ -149,9 +172,16 @@ class VolunteerHomeViewController: UIViewController {
         
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        self.showSpinner()
+        
         let identifier = segue.identifier
         if identifier == "CPRT" {
+//            Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { (t) in
+//                self.removeSpinner()
+//            }
             let segueDestination = segue.destination as! CreateReportViewController
             segueDestination.username = userName
         }
@@ -171,9 +201,13 @@ class VolunteerHomeViewController: UIViewController {
                     destination.profile = detailsUpdated
                 }
         
-        if identifier == "reportsSegue"{
-            let destination = segue.destination as! ReportsViewController
-        }
+//        if identifier == "reportsSegue"{
+////            self.showSpinner()
+////            Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { (t) in
+////                self.removeSpinner()
+////            }
+//            let destination = segue.destination as! ReportsViewController
+//        }
     }
     
 }
