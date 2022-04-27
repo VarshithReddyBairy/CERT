@@ -27,6 +27,9 @@ class LoginViewController: UIViewController {
         return nil
     }
 
+    @IBAction func unwind(_ seg: UIStoryboardSegue){
+        
+    }
     
     func messageAlert(title:String, message:String) {
         let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
