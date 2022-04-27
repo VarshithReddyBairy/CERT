@@ -177,6 +177,20 @@ class CreateReportViewController: UIViewController {
         alertTrigger()
     }
     
+    func unwindToDashBoard(){
+            performSegue(withIdentifier: "backToDashBoard", sender: self)
+        }
+    
+    func navigateAlert(title:String, message:String) {
+        let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        errorAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { (ACTION) in
+            self.clearAllFields()
+            self.unwindToDashBoard()
+        }))
+        self.present(errorAlert, animated: true, completion: nil)
+    }
+    
     //Function that carry out the alert Action
     func alertTrigger(){
         let cameraIcon = UIImage(named: "camera")
@@ -228,7 +242,26 @@ class CreateReportViewController: UIViewController {
         photoView.image = UIImage(named: "uploadImage")
         messageAlert(title: "Removed Image", message: "Uploaded Image is removed")
     }
-    
+    func clearAllFields(){
+        addressField.text = nil
+        stateField.text = nil
+        cityField.text = nil
+        lattitudeField.text = nil
+        longitudeField.text = nil
+        zipcodeField.text = nil
+        typeOfIncidentField.text = nil
+        fireHazardImpactField.text = nil
+        strucDamageImpactField.text = nil
+        hazmotDamageImpactField.text = nil
+        redCausalityField.text = nil
+        greenCausalityField.text = nil
+        yellowCausalityField.text = nil
+        blackCausalityField.text = nil
+        timePickerField.text = nil
+        notesTextView.text = nil
+        reportTitleField.text = nil
+        userNameField.text = nil
+    }
     
     func uploadReportDetails(){
         guard let image = photoView.image, let imgData = image.jpegData(compressionQuality: 1.0) else{
@@ -306,7 +339,7 @@ class CreateReportViewController: UIViewController {
                     if error != nil {
                         self.messageAlert(title: "Data fetch Error", message: "We have experienced an error while fetching your data. Please try again.")
                     }
-                    self.messageAlert(title: "Success", message: "Image Added and database updated Successfully")
+                    self.navigateAlert(title: "Success", message: "Image Added and database updated Successfully")
                     
                 }
             })
