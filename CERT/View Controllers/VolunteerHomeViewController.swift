@@ -10,6 +10,7 @@ import StoreKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import FirebaseFirestore
 class UserDetails{
     
 }
