@@ -2,14 +2,13 @@
 //  RegistrationViewController.swift
 //  CERT
 //
-//  Created by CERT on 10/24/21.
+//  Created by JayaShankar Mangina on 10/24/21.
 //
 
 import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
-import FirebaseFirestore
 
 class RegistrationViewController: UIViewController {
 
@@ -81,21 +80,6 @@ class RegistrationViewController: UIViewController {
         
         return nil
     }
-    
-    func clearAllFields(){
-        firstNameField.text = nil
-        lastNameField.text = nil
-        contactNumberField.text = nil
-        emailField.text = nil
-        passwdField.text = nil
-        verifyPasswdField.text = nil
-        streetField.text = nil
-        stateField.text = nil
-        cityField.text = nil
-        zipCodeField.text = nil
-        qualificationField.text = nil
-        othersField.text = nil
-    }
 
 // MARK: 4 - Function to validate the Password
     func isPasswordValid(_ password : String) -> Bool {
@@ -112,15 +96,12 @@ class RegistrationViewController: UIViewController {
         }))
         self.present(errorAlert, animated: true, completion: nil)
     }
-    
-    func navigateAlert(title:String, message:String) {
-        let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        errorAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { (ACTION) in
-            self.clearAllFields()
-            self.performSegue(withIdentifier: "signUpSuccess", sender: UIButton.self)
-        }))
-        self.present(errorAlert, animated: true, completion: nil)
+
+// MARK: 6 - Function to trigger Segue Navigation to LoginViewController
+    func transitionToDashboard() {
+        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
+        view.window?.rootViewController = isLoginViewController
+        view.window?.makeKeyAndVisible()
     }
     
 // MARK: 7 - Function to Carry out and Validate the Operation when Signup button Clicked
@@ -149,6 +130,8 @@ class RegistrationViewController: UIViewController {
                 }
                 else{
                     let db = Firestore.firestore()
+                    //let db = Database.database().reference()
+                    //db.child("usersDB").setValue(<#T##value: Any?##Any?#>)
                     db.collection("usersDB").addDocument(data: ["firstName": firstName,
                                                               "lastName": lastName,
 //                                                              "uid": result!.user.uid,
@@ -168,7 +151,8 @@ class RegistrationViewController: UIViewController {
                         }
                     }
                     //Transition to User dashboard
-                    self.navigateAlert(title: "Sign Up Success", message: "Your User Account is Succesfully Created")
+                    self.messageAlert(title: "Sign Up Success", message: "Your User Account is Succesfully Created")
+                    self.transitionToDashboard()
                 }
             }
         }

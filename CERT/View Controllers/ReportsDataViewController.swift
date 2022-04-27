@@ -2,7 +2,7 @@
 //  ReportsDataViewController.swift
 //  CERT
 //
-//  Created by student on 4/19/22.
+//  Created by Vineetha Batchu on 4/26/22.
 //
 
 import UIKit
@@ -15,22 +15,19 @@ class ReportsDataViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = reportsDataTableView.dequeueReusableCell(withIdentifier: "reportsData", for: indexPath)
         cell.textLabel?.text = data[indexPath.row]
-        cell.textLabel?.textColor = UIColor.green
         return cell
     }
-    
+    var data : [String] = []
 
     @IBOutlet weak var reportsDataTableView: UITableView!
-    
-    var data : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
         reportsDataTableView.delegate = self
         reportsDataTableView.dataSource = self
+        
     }
     
 
-    //cell : reportsData
+    
 
 }
