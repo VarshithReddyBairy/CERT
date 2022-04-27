@@ -38,7 +38,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        self.showSpinner()
         let error = validateFields()
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (t) in
+            self.removeSpinner()
+        }
         if error != nil {
             messageAlert(title: "Error", message: error!)
         }else{
@@ -50,6 +54,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+        performSegue(withIdentifier: "dashBoardSegue", sender: UIButton.self)
     }
     
 }
