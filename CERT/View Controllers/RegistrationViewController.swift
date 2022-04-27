@@ -86,6 +86,21 @@ class RegistrationViewController: UIViewController {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
+    
+    func clearAllFields(){
+        firstNameField.text = nil
+        lastNameField.text = nil
+        contactNumberField.text = nil
+        emailField.text = nil
+        passwdField.text = nil
+        verifyPasswdField.text = nil
+        streetField.text = nil
+        stateField.text = nil
+        cityField.text = nil
+        zipCodeField.text = nil
+        qualificationField.text = nil
+        othersField.text = nil
+    }
 
 // MARK: 5 - Function to trigger Message Alert
     func messageAlert(title:String, message:String) {
@@ -96,19 +111,28 @@ class RegistrationViewController: UIViewController {
         }))
         self.present(errorAlert, animated: true, completion: nil)
     }
+    
+    func navigateAlert(title:String, message:String) {
+        let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        errorAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { (ACTION) in
+            self.clearAllFields()
+            self.performSegue(withIdentifier: "signUpSuccess", sender: UIButton.self)
+        }))
+        self.present(errorAlert, animated: true, completion: nil)
+    }
 
 // MARK: 6 - Function to trigger Segue Navigation to LoginViewController
-    func transitionToDashboard() {
-        let isLoginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.LoginStoryboard.isLoginController) as? LoginViewController
-        view.window?.rootViewController = isLoginViewController
-        view.window?.makeKeyAndVisible()
-    }
     
 // MARK: 7 - Function to Carry out and Validate the Operation when Signup button Clicked
     @IBAction func signUpClicked(_ sender: UIButton) {
+        
+        self.showSpinner()
+
         let error = validateFields()
         
         if error != nil {
+            self.removeSpinner()
             messageAlert(title: "Error", message: error!)
         }
         else{
@@ -126,12 +150,11 @@ class RegistrationViewController: UIViewController {
             let others = othersField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 if err != nil{
+                    self.removeSpinner()
                     self.messageAlert(title: "Account Sign up Error", message: "Error Creating user")
                 }
                 else{
                     let db = Firestore.firestore()
-                    //let db = Database.database().reference()
-                    //db.child("usersDB").setValue(<#T##value: Any?##Any?#>)
                     db.collection("usersDB").addDocument(data: ["firstName": firstName,
                                                               "lastName": lastName,
 //                                                              "uid": result!.user.uid,
@@ -147,12 +170,15 @@ class RegistrationViewController: UIViewController {
                                                               "createdAt" : "",
                                                               "verifyPassword": verifyPassword]) { (error) in
                         if error != nil {
+                            self.removeSpinner()
                             self.messageAlert(title: "User Account Error", message: "Error Saving User data")
                         }
                     }
                     //Transition to User dashboard
-                    self.messageAlert(title: "Sign Up Success", message: "Your User Account is Succesfully Created")
-                    self.transitionToDashboard()
+                    Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (t) in
+                        self.removeSpinner()
+                    }
+                    self.navigateAlert(title: "Sign Up Success", message: "Your User Account is Succesfully Created")
                 }
             }
         }
